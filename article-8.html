@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Вся правда о рассрочках 2026 в Казахстане | AQSHA.KZ</title>
+    <meta name="description" content="Скрытые переплаты, ловушки 0-0-24 и реальная стоимость товаров. Интерактивный калькулятор выгоды на AQSHA.KZ.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --primary: #0284c7; 
+            --accent: #f59e0b;
+            --danger: #e11d48;
+            --success: #10b981;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --header-bg: #1e293b;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: rgba(255,255,255,0.1);
+            --primary: #38bdf8;
+            --danger: #f43f5e;
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.8; }
+
+        header { background: var(--header-bg); border-bottom: 2px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 900; font-size: 1.5rem; color: #2563eb; text-decoration: none; letter-spacing: -1px; }
+
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        #live-date { font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); white-space: nowrap; }
+
+        .lang-switch { display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .lang-btn { background: none; border: none; padding: 6px 12px; cursor: pointer; font-size: 13px; font-weight: 700; color: var(--text); outline: none; }
+        .lang-btn.active { background: var(--primary); color: #fff; }
+
+        .theme-toggle { background: var(--bg); border: 2px solid var(--border); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text); }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .back-link { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 20px; }
+        
+        h1 { font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.1; background: linear-gradient(to right, var(--primary), #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 20px 0; font-weight: 800; }
+
+        .alert-banner { background: rgba(2, 132, 199, 0.1); border: 2px solid var(--primary); padding: 30px; border-radius: 25px; margin: 40px 0; position: relative; }
+        .alert-banner::before { content: attr(data-label); position: absolute; top: -15px; left: 20px; background: var(--primary); color: white; padding: 5px 15px; border-radius: 8px; font-weight: 800; font-size: 0.7rem; }
+
+        .calc-box { background: linear-gradient(135deg, var(--primary), #4f46e5); color: white; padding: 30px; border-radius: 25px; margin: 40px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .calc-box h3 { margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .calc-box input { width: 100%; padding: 15px; border-radius: 12px; border: none; margin: 10px 0; font-size: 1rem; background: rgba(255,255,255,0.9); outline: none; color: #000; }
+        .calc-result { font-size: 1.3rem; font-weight: 800; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3); }
+
+        .step-card { background: var(--card-bg); padding: 35px; border-radius: 24px; border: 1px solid var(--border); margin: 25px 0; box-shadow: var(--shadow); }
+        .step-card h3 { margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 12px; font-weight: 800; }
+        .step-number { background: var(--primary); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem; font-weight: 800; flex-shrink: 0; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 30px 0; border-radius: 15px; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); }
+        .comparison-table th { background: rgba(56, 189, 248, 0.1); padding: 15px; text-align: left; color: var(--primary); }
+        .comparison-table td { padding: 15px; border-bottom: 1px solid var(--border); }
+
+        .safe-action { border-left: 4px solid var(--success); background: rgba(16, 185, 129, 0.05); padding: 20px; margin: 20px 0; border-radius: 0 15px 15px 0; }
+
+        .feedback-form { background: var(--card-bg); border: 2px solid var(--border); border-radius: 15px; padding: 25px; margin-top: 40px; }
+        .feedback-form input, .feedback-form textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); outline: none; }
+        .feedback-form button { background: var(--primary); color: #fff; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; }
+
+        footer { margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding: 40px; color: var(--text-muted); font-size: 13px; }
+
+        @media (max-width: 600px) {
+            .step-card { padding: 20px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">AQSHA.KZ</a>
+    <div class="header-controls">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('ru')">RU</button>
+            <button class="lang-btn" onclick="switchLang('kk')">KZ</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="live-date">Загрузка...</div>
+    </div>
+</header>
+
+<div class="container">
+    <a href="index.html" class="back-link" data-t="back">← Назад на главную</a>
+    
+    <h1 data-t="h1">Ловушки рассрочек 0-0-24: Считаем реальную стоимость товара</h1>
+    <p style="font-size: 1.1rem; color: var(--text-muted);" data-t="intro">В 2026 году комиссия магазина за вашу «бесплатную» рассрочку уже заранее заложена в ценник. Разберемся, сколько вы переплачиваете на самом деле.</p>
+
+    <div class="calc-box">
+        <h3><span style="font-size: 1.5rem;">🧮</span> <span data-t="calc_h">Калькулятор скрытой переплаты</span></h3>
+        <p data-t="calc_p">Сравните цену в рассрочку и цену за наличные в другом магазине:</p>
+        <input type="number" id="priceRassrochka" placeholder="Цена в рассрочку (например, 500 000)">
+        <input type="number" id="priceCash" placeholder="Цена за нал в другом месте (например, 420 000)">
+        <div id="calcResult" class="calc-result" data-t="calc_init">Результат: введите цифры</div>
+    </div>
+
+    <div class="alert-banner" data-label="💡 ФАКТ" id="alertBanner">
+        <p data-t="alert_p"><b>Правила 2026 года:</b> Проверяйте ГЭСВ (эффективную ставку). Если она выше 0.1%, это не рассрочка, а скрытый кредит, замаскированный под акцию.</p>
+    </div>
+
+    <div class="step-card">
+        <h3><div class="step-number">1</div> <span data-t="s1_h">Потеря бонусов и кэшбэка</span></h3>
+        <p data-t="s1_p">При оформлении рассрочки 0-0-24 большинство банков Казахстана <b>отключают начисление бонусов</b>.</p>
+        <div class="safe-action" data-t="s1_a">
+            <b>Пример:</b> Покупая за нал со скидкой 5% и кэшбэком 10%, вы экономите 75 000 ₸ на покупке в 500 000 ₸. В рассрочку вы отдаете эти деньги магазину.
+        </div>
+    </div>
+
+    <h2 data-t="table_h">Сравнение цен в магазинах РК (2026)</h2>
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th data-t="th1">Товар</th>
+                <th data-t="th2">За наличные (₸)</th>
+                <th data-t="th3">В рассрочку (₸)</th>
+                <th data-t="th4">Реальная наценка</th>
+            </tr>
+        </thead>
+        <tbody id="comparisonBody">
+            </tbody>
+    </table>
+
+    <div class="step-card">
+        <h3><div class="step-number">2</div> <span data-t="s2_h">Нагрузка на кредитную историю</span></h3>
+        <p data-t="s2_p">Для Первого Кредитного Бюро (ПКБ) нет разницы между «рассрочкой» и «кредитом».</p>
+        <div class="safe-action" data-t="s2_a">Три мелкие рассрочки на гаджеты могут стать причиной отказа, когда вам действительно понадобится ипотека или автокредит.</div>
+    </div>
+
+    <div class="step-card">
+        <h3><div class="step-number">3</div> <span data-t="s3_h">Страховки и услуги</span></h3>
+        <p data-t="s3_p">Часто рассрочку не одобряют без «сервисного пакета» или страховки жизни.</p>
+        <div class="safe-action" data-t="s3_a">Проверяйте финальную сумму в приложении перед подписанием через биометрию. Сумма может вырасти на 15-40 тысяч за счет ненужных допов.</div>
+    </div>
+
+    <div style="background: rgba(16, 185, 129, 0.1); padding: 30px; border-radius: 20px; margin: 40px 0; border-left: 5px solid var(--success);">
+        <h4 style="margin-top:0; color:var(--success);" data-t="tip_h">💡 Простой совет:</h4>
+        <p data-t="tip_p">Рассрочка выгодна только в одном случае: если цена товара в этом магазине <b>копейка в копейку</b> совпадает с самой низкой ценой на рынке за наличные.</p>
+    </div>
+
+    <div class="feedback-form">
+        <h3 data-t="f_h">Нашли подозрительную наценку?</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 15px;" data-t="f_p">Поделитесь ссылкой на товар, чтобы мы обновили таблицу сравнения.</p>
+        <input type="email" id="fbEmail" placeholder="Ваш Email">
+        <textarea id="fbText" rows="3" placeholder="Ссылка на товар..."></textarea>
+        <button onclick="sendFeedback()" data-t="f_btn">Отправить данные</button>
+    </div>
+
+</div>
+
+<footer>
+    <p id="footer-text">&copy; 2026 AQSHA.KZ — Проект о деньгах в Казахстане. <br> Материалы не являются финансовой рекомендацией.</p>
+</footer>
+
+<script>
+    const translations = {
+        ru: {
+            back: "← Назад на главную",
+            h1: "Ловушки рассрочек 0-0-24: Считаем реальную стоимость товара",
+            intro: "В 2026 году комиссия магазина за вашу «бесплатную» рассрочку уже заранее заложена в ценник. Разберемся, сколько вы переплачиваете на самом деле.",
+            calc_h: "Калькулятор скрытой переплаты",
+            calc_p: "Сравните цену в рассрочку и цену за наличные в другом магазине:",
+            calc_init: "Результат: введите цифры",
+            calc_res: "Скрытая переплата:",
+            calc_ok: "✅ Похоже, рассрочка честная!",
+            alert_label: "💡 ФАКТ",
+            alert_p: "<b>Правила 2026 года:</b> Проверяйте ГЭСВ (эффективную ставку). Если она выше 0.1%, это не рассрочка, а скрытый кредит, замаскированный под акцию.",
+            s1_h: "Потеря бонусов и кэшбэка",
+            s1_p: "При оформлении рассрочки 0-0-24 большинство банков Казахстана <b>отключают начисление бонусов</b>.",
+            s1_a: "<b>Пример:</b> Покупая за нал со скидкой 5% и кэшбэком 10%, вы экономите 75 000 ₸ на покупке в 500 000 ₸. В рассрочку вы отдаете эти деньги магазину.",
+            table_h: "Сравнение цен в магазинах РК (2026)",
+            th1: "Товар", th2: "За наличные (₸)", th3: "В рассрочку (₸)", th4: "Реальная наценка",
+            tableRows: [
+                ["iPhone 17 Pro", "685 000", "840 000", "+22.6%"],
+                ["Ноутбук (RTX 5060)", "410 000", "495 000", "+20.7%"]
+            ],
+            s2_h: "Нагрузка на кредитную историю",
+            s2_p: "Для Первого Кредитного Бюро (ПКБ) нет разницы между «рассрочкой» и «кредитом».",
+            s2_a: "Три мелкие рассрочки на гаджеты могут стать причиной отказа, когда вам действительно понадобится ипотека или автокредит.",
+            s3_h: "Страховки и услуги",
+            s3_p: "Часто рассрочку не одобряют без «сервисного пакета» или страховки жизни.",
+            s3_a: "Проверяйте финальную сумму в приложении перед подписанием через биометрию. Сумма может вырасти на 15-40 тысяч за счет ненужных допов.",
+            tip_h: "💡 Простой совет:",
+            tip_p: "Рассрочка выгодна только в одном случае: если цена товара в этом магазине <b>копейка в копейку</b> совпадает с самой низкой ценой на рынке за наличные.",
+            f_h: "Нашли подозрительную наценку?",
+            f_p: "Поделитесь ссылкой на товар, чтобы мы обновили таблицу сравнения.",
+            f_btn: "Отправить данные",
+            f_hold: "Ссылка на товар или описание условий...",
+            footer: "&copy; 2026 AQSHA.KZ — Проект о деньгах в Казахстане. <br> Материалы не являются финансовой рекомендацией.",
+            alert_success: "Спасибо! Информация принята к сведению."
+        },
+        kk: {
+            back: "← Басты бетке қайту",
+            h1: "0-0-24 бөліп төлеудің тұзақтары: Тауардың нақты құнын есептейміз",
+            intro: "2026 жылы дүкеннің сіздің «тегін» бөліп төлеуіңіз үшін алатын комиссиясы бағаға алдын ала қосылған. Шын мәнінде қанша артық төлейтініңізді анықтайық.",
+            calc_h: "Жасырын артық төлем калькуляторы",
+            calc_p: "Бөліп төлеу бағасы мен басқа дүкендегі қолма-қол ақша бағасын салыстырыңыз:",
+            calc_init: "Нәтиже: сандарды енгізіңіз",
+            calc_res: "Жасырын артық төлем:",
+            calc_ok: "✅ Бөліп төлеу тиімді сияқты!",
+            alert_label: "💡 ФАКТ",
+            alert_p: "<b>2026 жылғы ережелер:</b> ЖТСМ (жылдық тиімді сыйақы мөлшерлемесін) тексеріңіз. Егер ол 0.1%-дан жоғары болса, бұл бөліп төлеу емес, акция ретінде жасырылған несие.",
+            s1_h: "Бонустар мен кэшбэктен айырылу",
+            s1_p: "0-0-24 бөліп төлеуді рәсімдеген кезде Қазақстанның көптеген банктері <b>бонустарды есептеуді тоқтатады</b>.",
+            s1_a: "<b>Мысалы:</b> 5% жеңілдікпен және 10% кэшбэкпен қолма-қол сатып алсаңыз, 500 000 ₸ саудадан 75 000 ₸ үнемдейсіз. Бөліп төлеу арқылы сіз бұл ақшаны дүкенге бересіз.",
+            table_h: "ҚР дүкендеріндегі бағаларды салыстыру (2026)",
+            th1: "Тауар", th2: "Қолма-қол (₸)", th3: "Бөліп төлеу (₸)", th4: "Нақты үстеме",
+            tableRows: [
+                ["iPhone 17 Pro", "685 000", "840 000", "+22.6%"],
+                ["Ноутбук (RTX 5060)", "410 000", "495 000", "+20.7%"]
+            ],
+            s2_h: "Кредиттік тарихқа жүктеме",
+            s2_p: "Бірінші Кредиттік Бюро (БКБ) үшін «бөліп төлеу» мен «несие» арасында айырмашылық жоқ.",
+            s2_a: "Гаджеттерге алынған үш ұсақ бөліп төлеу сізге ипотека немесе автонесие қажет болғанда бас тартуға себеп болуы мүмкін.",
+            s3_h: "Сақтандыру және қызметтер",
+            s3_p: "Жиі бөліп төлеуді «сервистік пакетсіз» немесе өмірді сақтандырусыз мақұлдамайды.",
+            s3_a: "Биометрия арқылы қол қоймас бұрын қосымшадағы соңғы соманы тексеріңіз. Қажетсіз қосымшалар есебінен сома 15-40 мыңға өсуі мүмкін.",
+            tip_h: "💡 Қарапайым кеңес:",
+            tip_p: "Бөліп төлеу тек бір жағдайда ғана тиімді: егер осы дүкендегі тауардың бағасы нарықтағы ең төменгі қолма-қол бағамен <b>тиынға дейін</b> сәйкес келсе.",
+            f_h: "Күдікті бағаны көрдіңіз бе?",
+            f_p: "Тауарға сілтемемен бөлісіңіз, біз салыстыру кестесін жаңартамыз.",
+            f_btn: "Мәліметтерді жіберу",
+            f_hold: "Тауар сілтемесі немесе шарттардың сипаттамасы...",
+            footer: "&copy; 2026 AQSHA.KZ — Қазақстандағы ақша туралы жоба. <br> Материалдар қаржылық ұсыныс болып табылмайды.",
+            alert_success: "Рахмет! Ақпарат ескерілді."
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function switchLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick').includes(lang));
+        });
+
+        document.querySelectorAll('[data-t]').forEach(el => {
+            const key = el.getAttribute('data-t');
+            if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        });
+
+        // Banner label
+        document.getElementById('alertBanner').setAttribute('data-label', translations[lang].alert_label);
+
+        // Table
+        const body = document.getElementById('comparisonBody');
+        body.innerHTML = '';
+        translations[lang].tableRows.forEach(row => {
+            body.innerHTML += `<tr>
+                <td>${row[0]}</td>
+                <td>${row[1]}</td>
+                <td>${row[2]}</td>
+                <td style="color:var(--danger); font-weight:800;">${row[3]}</td>
+            </tr>`;
+        });
+
+        // Placeholders & footer
+        document.getElementById('fbText').placeholder = translations[lang].f_hold;
+        document.getElementById('footer-text').innerHTML = translations[lang].footer;
+        
+        calc(); // Recalc language string
+        updateDates();
+    }
+
+    function updateDates() {
+        const now = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const locale = currentLang === 'ru' ? 'ru-RU' : 'kk-KZ';
+        document.getElementById('live-date').innerText = now.toLocaleDateString(locale, options).replace(' г.', '');
+    }
+
+    const tBtn = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+        tBtn.innerText = theme === 'dark' ? '🌙' : '☀️';
+    }
+    tBtn.onclick = () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('site_theme', newTheme);
+    };
+
+    const inR = document.getElementById('priceRassrochka');
+    const inC = document.getElementById('priceCash');
+    const res = document.getElementById('calcResult');
+
+    function calc() {
+        const r = parseFloat(inR.value) || 0;
+        const c = parseFloat(inC.value) || 0;
+        if(r > c && c > 0) {
+            const d = r - c;
+            const p = ((d/c)*100).toFixed(1);
+            res.innerHTML = `${translations[currentLang].calc_res} <span style="color:#ffdbdb">${d.toLocaleString()} ₸</span> (${p}%)`;
+        } else if (r > 0 && c > 0 && r <= c) {
+            res.innerHTML = translations[currentLang].calc_ok;
+        } else {
+            res.innerHTML = translations[currentLang].calc_init;
+        }
+    }
+    inR.oninput = calc;
+    inC.oninput = calc;
+
+    function sendFeedback() {
+        alert(translations[currentLang].alert_success);
+    }
+
+    // Init
+    applyTheme(localStorage.getItem('site_theme') || 'light');
+    switchLang('ru');
+</script>
+
+</body>
+</html>

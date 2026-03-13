@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Куда инвестировать в 2026 году: Гайд для казахстанцев | AQSHA.KZ</title>
+    <meta name="description" content="Обзор инвестиционных инструментов в Казахстане на 2026 год. Акции KASE, золото, цифровой тенге и новые правила ЕНПФ.">
+    <meta name="keywords" content="инвестиции казахстан 2026, куда вложить тенге, цифровой тенге инвестиции, акции kase дивиденды, иис казахстан">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --primary: #2563eb; 
+            --accent: #7c3aed;
+            --profit: #10b981;
+            --danger: #f43f5e;
+            --warning: #f59e0b;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --header-bg: #1e293b;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: rgba(255,255,255,0.1);
+            --primary: #38bdf8;
+            --accent: #a78bfa;
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.8; }
+
+        header { background: var(--header-bg); border-bottom: 2px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 900; font-size: 1.5rem; color: #2563eb; text-decoration: none; letter-spacing: -1px; }
+
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        
+        /* Стили переключателя языков */
+        .lang-switch { display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .lang-btn { background: none; border: none; padding: 5px 12px; cursor: pointer; font-size: 12px; font-weight: 700; color: var(--text-muted); outline: none; }
+        .lang-btn.active { background: var(--primary); color: #fff; }
+
+        #live-date { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: var(--text); 
+            background: var(--bg); 
+            padding: 6px 12px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .theme-toggle { background: var(--bg); border: 2px solid var(--border); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; color: var(--text); }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .back-link { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 20px; }
+        
+        h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); line-height: 1.1; background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 20px 0; font-weight: 800; }
+
+        .asset-card { background: var(--card-bg); padding: 30px; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow); margin-bottom: 25px; display: flex; gap: 20px; align-items: flex-start; }
+        .asset-icon { font-size: 2.2rem; background: var(--bg); width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; border-radius: 18px; flex-shrink: 0; }
+        
+        .yield-badge { display: inline-block; padding: 4px 12px; background: rgba(16, 185, 129, 0.1); color: var(--profit); border-radius: 8px; font-weight: 800; font-size: 0.85rem; margin-bottom: 10px; }
+        .risk-badge { display: inline-block; padding: 4px 12px; background: rgba(244, 63, 94, 0.1); color: var(--danger); border-radius: 8px; font-weight: 800; font-size: 0.85rem; margin-bottom: 10px; }
+
+        .highlight-box { background: rgba(37, 99, 235, 0.05); border-left: 5px solid var(--primary); padding: 25px; border-radius: 0 15px 15px 0; margin: 30px 0; }
+
+        .enpf-box { background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; padding: 35px; border-radius: 25px; margin: 40px 0; position: relative; overflow: hidden; }
+        .enpf-box::after { content: attr(data-badge); position: absolute; top: 15px; right: -30px; background: #fbbf24; color: #000; padding: 5px 40px; transform: rotate(45deg); font-weight: 900; font-size: 0.7rem; }
+
+        .portfolio-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 30px 0; background: var(--card-bg); border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
+        .portfolio-table td { padding: 18px; border-bottom: 1px solid var(--border); }
+        .portfolio-table tr:last-child td { border-bottom: none; }
+        .percent-tag { background: var(--primary); color: white; padding: 4px 10px; border-radius: 6px; font-weight: 800; font-size: 0.9rem; float: right; }
+
+        .feedback-form { background: var(--card-bg); border: 2px solid var(--border); border-radius: 15px; padding: 25px; margin-top: 40px; box-shadow: var(--shadow); }
+        .feedback-form h3 { margin-top: 0; color: var(--primary); margin-bottom: 10px; font-weight: 800; }
+        .feedback-form input, .feedback-form select { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); outline: none; }
+        .feedback-form button { background: var(--primary); color: #fff; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; }
+
+        footer { margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding: 40px; color: var(--text-muted); font-size: 13px; }
+
+        @media (max-width: 600px) {
+            .asset-card { flex-direction: column; text-align: center; align-items: center; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">AQSHA.KZ</a>
+    <div class="header-controls">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('ru')">RU</button>
+            <button class="lang-btn" onclick="switchLang('kk')">KZ</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="live-date">Загрузка...</div>
+    </div>
+</header>
+
+<div class="container">
+    <a href="index.html" class="back-link" data-t="back">← Вернуться на главную</a>
+    
+    <h1 data-t="h1">Куда инвестировать в 2026 году: Обзор инструментов в РК</h1>
+    <p style="font-size: 1.1rem; color: var(--text-muted);" data-t="sub">Эпоха простых депозитов уходит. В 2026 году побеждает тот, кто умеет диверсифицировать портфель между тенге, золотом и технологиями.</p>
+
+    <div class="asset-card" style="border: 2px solid var(--primary);">
+        <div class="asset-icon">📱</div>
+        <div class="asset-content">
+            <div class="yield-badge" style="background:rgba(37, 99, 235, 0.1);" data-t="a1_b">Технология 2026</div>
+            <h3 data-t="a1_t">Цифровой тенге (CBDC)</h3>
+            <p data-t="a1_d">В 2026 году цифровой тенге стал полноценным инструментом. Используйте его для <b>целевых инвестиций</b> через смарт-контракты — это гарантирует, что ваши средства будут использованы строго по назначению (например, в строительстве), что снижает риск мошенничества.</p>
+        </div>
+    </div>
+
+    <div class="asset-card">
+        <div class="asset-icon">📈</div>
+        <div class="asset-content">
+            <div class="yield-badge" data-t="a2_b">Доходность: 14-17% (₸)</div>
+            <h3 data-t="a2_t">Тенговые облигации (МЕКАМ)</h3>
+            <p data-t="a2_d">В 2026 году Государственные ценные бумаги стали доступнее через мобильные приложения брокеров. Это надежнее депозита и позволяет зафиксировать высокий процент на долгие годы.</p>
+        </div>
+    </div>
+
+    <div class="asset-card">
+        <div class="asset-icon">🏢</div>
+        <div class="asset-content">
+            <div class="yield-badge" data-t="a3_b">Рентный доход: 10-12%</div>
+            <h3 data-t="a3_t">Казахстанские REIT-фонды</h3>
+            <p data-t="a3_d">Не обязательно покупать целую квартиру. В 2026 году через биржу AIX можно купить доли в коммерческой недвижимости Алматы и Астаны. Вы получаете часть аренды ежемесячно на свой счет.</p>
+        </div>
+    </div>
+
+    <div class="asset-card">
+        <div class="asset-icon">🏆</div>
+        <div class="asset-content">
+            <div class="yield-badge" data-t="a4_b">Защитный актив 2026</div>
+            <h3 data-t="a4_t">Мерные слитки золота</h3>
+            <p data-t="a4_d">Золото подтвердило статус «тихой гавани». НБРК активно поддерживает рынок слитков. Рекомендуемая доля в портфеле на этот год — не менее 15%.</p>
+        </div>
+    </div>
+
+    <div class="asset-card">
+        <div class="asset-icon">🚀</div>
+        <div class="asset-content">
+            <div class="risk-badge" data-t="a5_b">Риск: Высокий</div>
+            <h3 data-t="a5_t">Краудлендинг (Займы бизнесу)</h3>
+            <p data-t="a5_d">Новый хит МФЦА. Прямое финансирование малого и среднего бизнеса Казахстана под 20-25% годовых.</p>
+        </div>
+    </div>
+
+    <div class="enpf-box" id="enpfBox" data-badge="2026 NEW">
+        <h2 style="margin-top:0;" data-t="enpf_t">Реформа ЕНПФ 2026</h2>
+        <p data-t="enpf_d">Теперь каждый казахстанец может перевести 100% накоплений сверх порога достаточности в частное управление (УИП). Выбирайте агрессивные стратегии, чтобы обогнать инфляцию.</p>
+    </div>
+
+    <div class="highlight-box">
+        <h4 style="margin-top: 0; color: var(--primary);" data-t="tax_t">💰 Налоговый лайфхак 2026</h4>
+        <p style="font-size: 0.95rem; margin-bottom: 0;" data-t="tax_d">Откройте <b>ИИС (Индивидуальный инвестиционный счет)</b>. В 2026 году резиденты РК освобождаются от налога на прирост стоимости по акциям KASE и AIX, если держать их более 1 года. Это чистая экономия 10% на налогах!</p>
+    </div>
+
+    <h2 data-t="port_t">Модельный портфель «Сбалансированный 2026»</h2>
+    <table class="portfolio-table">
+        <tr>
+            <td data-t="p1">🏦 <b>ГЦБ и Цифровой тенге</b> (База)</td>
+            <td><span class="percent-tag">40%</span></td>
+        </tr>
+        <tr>
+            <td data-t="p2">🇰🇿 <b>Акции и REITs</b> (Доход)</td>
+            <td><span class="percent-tag">35%</span></td>
+        </tr>
+        <tr>
+            <td data-t="p3">🟡 <b>Золото</b> (Защита)</td>
+            <td><span class="percent-tag">15%</span></td>
+        </tr>
+        <tr>
+            <td data-t="p4">🌐 <b>Global ETF</b> (Хедж)</td>
+            <td><span class="percent-tag">10%</span></td>
+        </tr>
+    </table>
+
+    <div class="feedback-form">
+        <h3 data-t="f_t">Получить инвестиционный чек-лист</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 15px;" data-t="f_d">Мы вышлем вам PDF-гайд по выбору брокера и список дивидендных компаний Казахстана на 2026 год.</p>
+        <input type="text" id="userName" placeholder="Ваше имя">
+        <input type="email" id="fbEmail" placeholder="Ваш Email">
+        <button onclick="sendRequest()" data-t="f_b">Получить гайд бесплатно</button>
+    </div>
+
+</div>
+
+<footer>
+    <p id="footerText">&copy; 2026 AQSHA.KZ — Ваш надежный проводник в финансах Казахстана. <br> Инвестиции всегда сопряжены с риском.</p>
+</footer>
+
+<script>
+    const translations = {
+        ru: {
+            back: "← Вернуться на главную",
+            h1: "Куда инвестировать в 2026 году: Обзор инструментов в РК",
+            sub: "Эпоха простых депозитов уходит. В 2026 году побеждает тот, кто умеет диверсифицировать портфель между тенге, золотом и технологиями.",
+            a1_b: "Технология 2026",
+            a1_t: "Цифровой тенге (CBDC)",
+            a1_d: "В 2026 году цифровой тенге стал полноценным инструментом. Используйте его для <b>целевых инвестиций</b> через смарт-контракты — это гарантирует, что ваши средства будут использованы строго по назначению (например, в строительстве), что снижает риск мошенничества.",
+            a2_b: "Доходность: 14-17% (₸)",
+            a2_t: "Тенговые облигации (МЕКАМ)",
+            a2_d: "В 2026 году Государственные ценные бумаги стали доступнее через мобильные приложения брокеров. Это надежнее депозита и позволяет зафиксировать высокий процент на долгие годы.",
+            a3_b: "Рентный доход: 10-12%",
+            a3_t: "Казахстанские REIT-фонды",
+            a3_d: "Не обязательно покупать целую квартиру. В 2026 году через биржу AIX можно купить доли в коммерческой недвижимости Алматы и Астаны. Вы получаете часть аренды ежемесячно на свой счет.",
+            a4_b: "Защитный актив 2026",
+            a4_t: "Мерные слитки золота",
+            a4_d: "Золото подтвердило статус «тихой гавани». НБРК активно поддерживает рынок слитков. Рекомендуемая доля в портфеле на этот год — не менее 15%.",
+            a5_b: "Риск: Высокий",
+            a5_t: "Краудлендинг (Займы бизнесу)",
+            a5_d: "Новый хит МФЦА. Прямое финансирование малого и среднего бизнеса Казахстана под 20-25% годовых.",
+            enpf_t: "Реформа ЕНПФ 2026",
+            enpf_d: "Теперь каждый казахстанец может перевести 100% накоплений сверх порога достаточности в частное управление (УИП). Выбирайте агрессивные стратегии, чтобы обогнать инфляцию.",
+            tax_t: "💰 Налоговый лайфхак 2026",
+            tax_d: "Откройте <b>ИИС (Индивидуальный инвестиционный счет)</b>. В 2026 году резиденты РК освобождаются от налога на прирост стоимости по акциям KASE и AIX, если держать их более 1 года. Это чистая экономия 10% на налогах!",
+            port_t: "Модельный портфель «Сбалансированный 2026»",
+            p1: "🏦 <b>ГЦБ и Цифровой тенге</b> (База)",
+            p2: "🇰🇿 <b>Акции и REITs</b> (Доход)",
+            p3: "🟡 <b>Золото</b> (Защита)",
+            p4: "🌐 <b>Global ETF</b> (Хедж)",
+            f_t: "Получить инвестиционный чек-лист",
+            f_d: "Мы вышлем вам PDF-гайд по выбору брокера и список дивидендных компаний Казахстана на 2026 год.",
+            f_b: "Получить гайд бесплатно",
+            footer: "&copy; 2026 AQSHA.KZ — Ваш надежный проводник в финансах Казахстана. <br> Инвестиции всегда сопряжены с риском.",
+            alert_ok: "Чек-лист отправлен на почту ",
+            alert_err: "Укажите Email"
+        },
+        kk: {
+            back: "← Басты бетке оралу",
+            h1: "2026 жылы қайда инвестициялау керек: ҚР-дағы құралдар шолуы",
+            sub: "Қарапайым депозиттер дәуірі аяқталуда. 2026 жылы теңге, алтын және технологиялар арасында портфельді әртараптандыра білетіндер жеңіске жетеді.",
+            a1_b: "2026 Технологиясы",
+            a1_t: "Цифрлық теңге (CBDC)",
+            a1_d: "2026 жылы цифрлық теңге толыққанды құралға айналды. Оны смарт-келісімшарттар арқылы <b>нысаналы инвестициялар</b> үшін пайдаланыңыз — бұл қаражатыңыздың қатаң түрде тағайындалуы бойынша (мысалы, құрылыста) пайдаланылуын қамтамасыз етеді және алаяқтық қаупін азайтады.",
+            a2_b: "Кірістілік: 14-17% (₸)",
+            a2_t: "Теңгелік облигациялар (МЕКАМ)",
+            a2_d: "2026 жылы Мемлекеттік бағалы қағаздар брокерлердің мобильді қосымшалары арқылы қолжетімді бола түсті. Бұл депозиттен сенімдірек және ұзақ жылдарға жоғары пайызды бекітуге мүмкіндік береді.",
+            a3_b: "Ренттік кіріс: 10-12%",
+            a3_t: "Қазақстандық REIT-қорлар",
+            a3_d: "Тұтас пәтер сатып алу міндетті емес. 2026 жылы AIX биржасы арқылы Алматы мен Астананың коммерциялық жылжымайтын мүлкінен үлес сатып алуға болады. Сіз ай сайын жалдау ақысының бір бөлігін өз шотыңызға аласыз.",
+            a4_b: "2026 Қорғаныс активі",
+            a4_t: "Алтын құймалары",
+            a4_d: "Алтын «тыныш айлақ» мәртебесін растады. Ұлттық банк құймалар нарығын белсенді қолдайды. Биылғы портфельдегі ұсынылатын үлес — 15%-дан кем емес.",
+            a5_b: "Тәуекел: Жоғары",
+            a5_t: "Краудлендинг (Бизнеске несие беру)",
+            a5_d: "АХҚО-ның жаңа хиты. Қазақстанның шағын және орта бизнесін жылдық 20-25%-бен тікелей қаржыландыру.",
+            enpf_t: "БЖЗҚ Реформасы 2026",
+            enpf_d: "Енді әрбір қазақстандық жеткіліктілік шегінен асатын жинақтарының 100% жеке басқаруға (ИБҰ) аудара алады. Инфляцияны басып озу үшін агрессивті стратегияларды таңдаңыз.",
+            tax_t: "💰 2026 Салық лайфхагы",
+            tax_d: "<b>ИИС (Жеке инвестициялық шот)</b> ашыңыз. 2026 жылы ҚР резиденттері KASE және AIX акциялары бойынша құн өсіміне салынатын салықтан босатылады (егер 1 жылдан астам ұстасаңыз). Бұл салықтан 10% таза үнемдеу!",
+            port_t: "«Теңгерімді 2026» модельдік портфелі",
+            p1: "🏦 <b>МБҚ және Цифрлық теңге</b> (База)",
+            p2: "🇰🇿 <b>Акциялар және REITs</b> (Кіріс)",
+            p3: "🟡 <b>Алтын</b> (Қорғаныс)",
+            p4: "🌐 <b>Global ETF</b> (Хедж)",
+            f_t: "Инвестициялық чек-парақты алу",
+            f_d: "Біз сізге брокер таңдау бойынша PDF-нұсқаулықты және 2026 жылға арналған Қазақстанның дивидендтік компаниялар тізімін жібереміз.",
+            f_b: "Нұсқаулықты тегін алу",
+            footer: "&copy; 2026 AQSHA.KZ — Қазақстандағы қаржы әлеміндегі сенімді жолбасшыңыз. <br> Инвестиция әрқашан тәуекелмен байланысты.",
+            alert_ok: "Чек-парақ поштаға жіберілді: ",
+            alert_err: "Email көрсетіңіз"
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function switchLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick').includes(lang));
+        });
+        
+        document.querySelectorAll('[data-t]').forEach(el => {
+            const key = el.getAttribute('data-t');
+            if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        });
+
+        document.getElementById('enpfBox').setAttribute('data-badge', lang === 'ru' ? '2026 NEW' : '2026 ЖАҢА');
+        document.getElementById('footerText').innerHTML = translations[lang].footer;
+        document.getElementById('userName').placeholder = lang === 'ru' ? 'Ваше имя' : 'Сіздің есіміңіз';
+        document.getElementById('fbEmail').placeholder = lang === 'ru' ? 'Ваш Email' : 'Сіздің Email';
+        
+        updateDates();
+    }
+
+    function updateDates() {
+        const now = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const langCode = currentLang === 'ru' ? 'ru-RU' : 'kk-KZ';
+        const dateStr = now.toLocaleDateString(langCode, options).replace(' г.', '');
+        document.getElementById('live-date').innerText = dateStr;
+    }
+
+    const tBtn = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+        tBtn.innerText = theme === 'dark' ? '🌙' : '☀️';
+    }
+    tBtn.onclick = () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('site_theme', newTheme);
+    };
+    applyTheme(localStorage.getItem('site_theme') || 'light');
+
+    function sendRequest() {
+        const email = document.getElementById('fbEmail').value;
+        if(!email) { alert(translations[currentLang].alert_err); return; }
+        alert(translations[currentLang].alert_ok + email);
+        document.getElementById('fbEmail').value = '';
+    }
+
+    updateDates();
+</script>
+
+</body>
+</html>

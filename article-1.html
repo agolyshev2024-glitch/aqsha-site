@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Банки Казахстана 2026: Сравнение Kaspi, Halyk и BCC — что выбрать? | AQSHA.KZ</title>
+    <meta name="description" content="Kaspi уже не тот? Сравниваем честные кэшбэки и скрытые комиссии Kaspi, Halyk и BCC в 2026 году. Узнай, какой банк реально платит тенге, а какой — только обещаниями. Читайте на AQSHA.KZ!">
+    <meta name="keywords" content="сравнение банков казахстан 2026, kaspi vs halyk vs bcc, лучший банк кэшбэк кз, картакарта vs kaspi gold, банки рк 2026">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #f0f2f5;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #cbd5e1;
+            --primary: #2563eb;
+            --accent: #10b981;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --kaspi: #f14635;
+            --halyk: #008259;
+            --bcc: #ffcc00;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --header-bg: #1e293b;
+            --card-bg: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 0; padding: 0; }
+
+        header { 
+            background: var(--header-bg); 
+            border-bottom: 2px solid var(--border); 
+            padding: 15px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+        .logo { font-weight: 900; font-size: 1.5rem; color: var(--primary); text-decoration: none; letter-spacing: -1px; }
+
+        .header-controls { display: flex; align-items: center; gap: 12px; }
+        
+        /* Стили переключателя языков */
+        .lang-switch { display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .lang-btn { background: none; border: none; padding: 5px 12px; cursor: pointer; font-size: 12px; font-weight: 700; color: var(--text-muted); outline: none; }
+        .lang-btn.active { background: var(--primary); color: #fff; }
+
+        #live-date { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: var(--text); 
+            background: var(--bg); 
+            padding: 6px 12px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .theme-toggle { 
+            background: var(--bg); 
+            border: 2px solid var(--border); 
+            width: 40px; 
+            height: 40px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-size: 1.2rem; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            color: var(--text);
+        }
+
+        .content { max-width: 850px; margin: 40px auto; background: var(--card-bg); padding: 40px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+        .back-link { display: inline-block; margin-bottom: 25px; color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.9rem; }
+
+        h1 { font-size: 2.5rem; line-height: 1.1; color: var(--text); margin-bottom: 25px; font-weight: 900; }
+        
+        h2 { border-left: 5px solid var(--primary); padding-left: 15px; margin-top: 45px; color: var(--text); font-size: 1.8rem; font-weight: 800; }
+        
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.9rem; overflow-x: auto; }
+        .comparison-table table { width: 100%; min-width: 500px; border-collapse: collapse; }
+        .comparison-table th { background: var(--bg); padding: 12px; border: 1px solid var(--border); text-align: left; }
+        .comparison-table td { padding: 12px; border: 1px solid var(--border); }
+        .check { color: var(--accent); font-weight: bold; }
+
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .feature-item { background: var(--bg); padding: 15px; border-radius: 10px; border: 1px solid var(--border); }
+
+        .verdict { background: rgba(16, 185, 129, 0.1); border-left: 5px solid var(--accent); padding: 30px; margin-top: 40px; border-radius: 12px; }
+        .tag-cash { color: #fff; font-weight: bold; background: var(--accent); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; }
+
+        .feedback-form { background: var(--header-bg); border: 2px solid var(--border); border-radius: 15px; padding: 25px; margin-top: 40px; }
+        .feedback-form h3 { margin-top: 0; font-size: 1.2rem; color: var(--primary); margin-bottom: 10px; }
+        .feedback-form input, .feedback-form textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); outline: none; }
+        .feedback-form button { background: var(--primary); color: #fff; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; }
+
+        .related-box { margin-top: 50px; padding-top: 30px; border-top: 2px solid var(--border); }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .related-card { background: var(--bg); padding: 15px; border-radius: 12px; text-decoration: none; color: var(--text); border: 1px solid var(--border); }
+        .related-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .related-card b { display: block; font-size: 0.95rem; margin-bottom: 5px; }
+        .related-card span { font-size: 0.8rem; color: var(--text-muted); }
+
+        footer { padding: 40px 5%; text-align: center; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 50px; }
+
+        @media (max-width: 600px) {
+            .content { padding: 20px; margin: 10px; border-radius: 12px; }
+            h1 { font-size: 1.8rem; }
+            .related-grid { grid-template-columns: 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">AQSHA.KZ</a>
+    <div class="header-controls">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('ru')">RU</button>
+            <button class="lang-btn" onclick="switchLang('kk')">KZ</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="live-date">Загрузка даты...</div>
+    </div>
+</header>
+
+<div class="content">
+    <a href="index.html" class="back-link" data-t="back">← Вернуться на главную</a>
+    
+    <h1 data-t="h1">Банки Казахстана 2026: Сравнение Kaspi, Halyk и BCC — что выбрать?</h1>
+
+    <p data-t="intro">В 2026 году банковский сектор Казахстана окончательно превратился в битву <b>Lifestyle-экосистем</b>. Мы протестировали три главных приложения страны, чтобы понять, кому доверить свои тенге в этом году.</p>
+
+    <h2 data-t="h2_1">1. Kaspi.kz: Скорость и охват</h2>
+    <p data-t="p1">Kaspi остается королем повседневности. В 2026 году их сеть охватила даже самые отдаленные поселки, а <b>FacePay</b> стал стандартом оплаты в любом минимаркете.</p>
+    
+    <div class="feature-grid">
+        <div class="feature-item">
+            <b data-t="f1_t">🚀 FacePay 2.0</b>
+            <p style="font-size: 0.8rem; margin: 5px 0 0;" data-t="f1_d">Оплата взглядом работает без задержек. Телефон можно даже не доставать.</p>
+        </div>
+        <div class="feature-item">
+            <b data-t="f2_t">📦 Супер-логистика</b>
+            <p style="font-size: 0.8rem; margin: 5px 0 0;" data-t="f2_d">Kaspi Postomat теперь стоят в каждом подъезде ЖК крупных городов.</p>
+        </div>
+    </div>
+
+    <h2 data-t="h2_2">2. Halyk Bank: Синергия с государством</h2>
+    <p data-t="p2">Halyk сделал ставку на интеграцию с eGov и безопасность. В 2026 году это самый мощный инструмент для получения госуслуг и управления пенсионными активами.</p>
+    
+    <div class="comparison-table">
+        <table>
+            <thead>
+                <tr>
+                    <th data-t="th_service">Сервис</th>
+                    <th>Kaspi</th>
+                    <th>Halyk</th>
+                    <th>BCC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-t="td_egov">Госуслуги</td>
+                    <td>8/10</td>
+                    <td><span class="check">10/10</span></td>
+                    <td>6/10</td>
+                </tr>
+                <tr>
+                    <td data-t="td_cashback">Кэшбэк</td>
+                    <td data-t="bonus">Бонусы</td>
+                    <td data-t="bonus">Бонусы</td>
+                    <td><span class="check" data-t="real_tenge">Реальные тенге</span></td>
+                </tr>
+                <tr>
+                    <td data-t="td_invest">Инвестиции</td>
+                    <td data-t="gold_stocks">Золото/Акции</td>
+                    <td><span class="check">Halyk Invest</span></td>
+                    <td>BCC Инвест</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2 data-t="h2_3">3. BCC: Выгода в каждом тенге</h2>
+    <p data-t="p3">Банк ЦентрКредит (BCC) остается фаворитом для тех, кто умеет считать деньги. Их политика кэшбэка в 2026 году — самая агрессивная и прозрачная на рынке.</p>
+
+    <div class="feature-grid" style="grid-template-columns: 1fr;">
+        <div class="feature-item" style="border-left: 4px solid var(--bcc);">
+            <b data-t="bcc_list_t">Главные козыри BCC в 2026:</b>
+            <ul style="font-size: 0.85rem; padding-left: 20px;" data-t="bcc_list_d">
+                <li><span class="tag-cash">Кэшбэк до 15%</span> на выбранные категории ежемесячно.</li>
+                <li><b>Travel-привилегии:</b> Бесплатные залы ожидания и страховки в IronCard.</li>
+                <li>Мгновенная конвертация валют по лучшему курсу в приложении.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 data-t="h2_4">4. Реальный расчет: Кто вернет больше?</h2>
+    <p data-t="calc_p">Представим, что ваши расходы в месяц составляют <b>300 000 тенге</b> (продукты, бензин, коммуналка и кафе).</p>
+
+    <div class="comparison-table">
+        <table>
+            <thead>
+                <tr>
+                    <th data-t="th_spend">Траты</th>
+                    <th data-t="th_sum">Сумма</th>
+                    <th data-t="th_kaspi_b">Kaspi (Бонусы)</th>
+                    <th data-t="th_bcc_t">BCC (Тенге)</th>
+                </tr>
+            </thead>
+            <tbody id="calc-body">
+                </tbody>
+        </table>
+    </div>
+
+    <p data-t="diff_p"><b>Разница очевидна:</b> За год с BCC вы можете накопить более <b>130 000 тенге</b> чистыми деньгами. Это полноценная "тринадцатая зарплата", которую вы просто забираете у банка за свои обычные покупки.</p>
+
+    <div class="verdict" data-t="verdict">
+        <strong>💡 Итоговый совет:</strong> <br>
+        Для быстрых переводов и покупок у дома — держите <b>Kaspi</b>. <br>
+        Для работы с налогами, документами и ипотекой — используйте <b>Halyk</b>. <br>
+        Для всех крупных трат (продукты, АЗС, одежда) — платите картой <b>BCC</b>, чтобы вернуть живые деньги.
+    </div>
+
+    <div class="feedback-form">
+        <h3 data-t="f_h3">Остались вопросы по банкам?</h3>
+        <p style="font-size: 0.9rem;" data-t="f_p">Наш эксперт поможет подобрать карту под ваш тип расходов.</p>
+        <input type="email" id="fbEmail" placeholder="Ваш Email">
+        <textarea id="fbText" rows="3" placeholder="Ваш вопрос..."></textarea>
+        <button onclick="sendFeedback()" data-t="f_btn">Получить консультацию</button>
+    </div>
+
+    <div class="related-box">
+        <h3 style="margin-bottom: 15px; border:none; padding:0; color: var(--text);" data-t="rel_t">Смотрите также:</h3>
+        <div class="related-grid">
+            <a href="article-2.html" class="related-card">
+                <b data-t="rel_1_t">🏠 Ипотека 2026</b>
+                <span data-t="rel_1_d">Обзор льготных программ в РК</span>
+            </a>
+            <a href="article-3.html" class="related-card">
+                <b data-t="rel_2_t">📈 Инвестиции</b>
+                <span data-t="rel_2_d">Как заставить тенге работать</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p id="footer-text">&copy; 2026 AQSHA.KZ — Финансовая аналитика Казахстана.</p>
+</footer>
+
+<script>
+    const translations = {
+        ru: {
+            back: "← Вернуться на главную",
+            h1: "Банки Казахстана 2026: Сравнение Kaspi, Halyk и BCC — что выбрать?",
+            intro: "В 2026 году банковский сектор Казахстана окончательно превратился в битву <b>Lifestyle-экосистем</b>. Мы протестировали три главных приложения страны, чтобы понять, кому доверить свои тенге в этом году.",
+            h2_1: "1. Kaspi.kz: Скорость и охват",
+            p1: "Kaspi остается королем повседневности. В 2026 году их сеть охватила даже самые отдаленные поселки, а <b>FacePay</b> стал стандартом оплаты в любом минимаркете.",
+            f1_t: "🚀 FacePay 2.0",
+            f1_d: "Оплата взглядом работает без задержек. Телефон можно даже не доставать.",
+            f2_t: "📦 Супер-логистика",
+            f2_d: "Kaspi Postomat теперь стоят в каждом подъезде ЖК крупных городов.",
+            h2_2: "2. Halyk Bank: Синергия с государством",
+            p2: "Halyk сделал ставку на интеграцию с eGov и безопасность. В 2026 году это самый мощный инструмент для получения госуслуг и управления пенсионными активами.",
+            th_service: "Сервис",
+            td_egov: "Госуслуги",
+            td_cashback: "Кэшбэк",
+            bonus: "Бонусы",
+            real_tenge: "Реальные тенге",
+            td_invest: "Инвестиции",
+            gold_stocks: "Золото/Акции",
+            h2_3: "3. BCC: Выгода в каждом тенге",
+            p3: "Банк ЦентрКредит (BCC) остается фаворитом для тех, кто умеет считать деньги. Их политика кэшбэка в 2026 году — самая агрессивная и прозрачная на рынке.",
+            bcc_list_t: "Главные козыри BCC в 2026:",
+            bcc_list_d: `<li><span class="tag-cash">Кэшбэк до 15%</span> на выбранные категории ежемесячно.</li>
+                         <li><b>Travel-привилегии:</b> Бесплатные залы ожидания и страховки в IronCard.</li>
+                         <li>Мгновенная конвертация валют по лучшему курсу в приложении.</li>`,
+            h2_4: "4. Реальный расчет: Кто вернет больше?",
+            calc_p: "Представим, что ваши расходы в месяц составляют <b>300 000 тенге</b> (продукты, бензин, коммуналка и кафе).",
+            th_spend: "Траты",
+            th_sum: "Сумма",
+            th_kaspi_b: "Kaspi (Бонусы)",
+            th_bcc_t: "BCC (Тенге)",
+            diff_p: "<b>Разница очевидна:</b> За год с BCC вы можете накопить более <b>130 000 тенге</b> чистыми деньгами. Это полноценная \"тринадцатая зарплата\", которую вы просто забираете у банка за свои обычные покупки.",
+            verdict: `<strong>💡 Итоговый совет:</strong> <br>
+                      Для быстрых переводов и покупок у дома — держите <b>Kaspi</b>. <br>
+                      Для работы с налогами, документами и ипотекой — используйте <b>Halyk</b>. <br>
+                      Для всех крупных трат (продукты, АЗС, одежда) — платите картой <b>BCC</b>, чтобы вернуть живые деньги.`,
+            f_h3: "Остались вопросы по банкам?",
+            f_p: "Наш эксперт поможет подобрать карту под ваш тип расходов.",
+            f_btn: "Получить консультацию",
+            rel_t: "Смотрите также:",
+            rel_1_t: "🏠 Ипотека 2026",
+            rel_1_d: "Обзор льготных программ в РК",
+            rel_2_t: "📈 Инвестиции",
+            rel_2_d: "Как заставить тенге работать",
+            footer: "&copy; 2026 AQSHA.KZ — Финансовая аналитика Казахстана.",
+            calc_rows: [
+                ["Продукты (5%)", "100 000 ₸", "500 Б", "5 000 ₸"],
+                ["АЗС / Такси (10%)", "50 000 ₸", "250 Б", "5 000 ₸"],
+                ["Остальное (1%)", "150 000 ₸", "1 500 Б", "1 500 ₸"],
+                ["ИТОГО В МЕСЯЦ:", "300 000 ₸", "2 250 Б", "11 500 ₸"]
+            ]
+        },
+        kk: {
+            back: "← Басты бетке оралу",
+            h1: "Қазақстан банктері 2026: Kaspi, Halyk және BCC салыстыру — қайсысын таңдау керек?",
+            intro: "2026 жылы Қазақстанның банк секторы түпкілікті <b>Lifestyle-экожүйелер</b> шайқасына айналды. Биыл теңгеңізді кімге сеніп тапсыру керектігін түсіну үшін біз елдегі үш негізгі қосымшаны сынап көрдік.",
+            h2_1: "1. Kaspi.kz: Жылдамдық пен қамту",
+            p1: "Kaspi күнделікті өмірдің королі болып қала береді. 2026 жылы олардың желісі тіпті ең шалғай ауылдарды да қамтыды, ал <b>FacePay</b> кез келген минимаркетте төлем стандартына айналды.",
+            f1_t: "🚀 FacePay 2.0",
+            f1_d: "Көзқараспен төлеу кідіріссіз жұмыс істейді. Телефонды шығармаса да болады.",
+            f2_t: "📦 Супер-логистика",
+            f2_d: "Kaspi Postomat-тар қазір ірі қалалардың әрбір ТК кіреберісінде тұр.",
+            h2_2: "2. Halyk Bank: Мемлекетпен синергия",
+            p2: "Halyk eGov-пен интеграцияға және қауіпсіздікке бәс тікті. 2026 жылы бұл мемлекеттік қызметтерді алу және зейнетақы активтерін басқаруға арналған ең қуатты құрал.",
+            th_service: "Сервис",
+            td_egov: "Мемлекеттік қызметтер",
+            td_cashback: "Кэшбэк",
+            bonus: "Бонустар",
+            real_tenge: "Нақты теңге",
+            td_invest: "Инвестициялар",
+            gold_stocks: "Алтын/Акциялар",
+            h2_3: "3. BCC: Әр теңгедегі пайда",
+            p3: "Банк ЦентрКредит (BCC) ақшаны санай білетіндер үшін таңдаулы болып қала береді. Олардың 2026 жылғы кэшбэк саясаты — нарықтағы ең агрессивті және ашық саясат.",
+            bcc_list_t: "2026 жылы BCC-дің негізгі артықшылықтары:",
+            bcc_list_d: `<li>Ай сайын таңдалған санаттарға <span class="tag-cash">15%-ға дейін кэшбэк</span>.</li>
+                         <li><b>Travel-артықшылықтар:</b> IronCard-та тегін күту залдары мен сақтандыру.</li>
+                         <li>Қосымшада ең тиімді бағаммен валютаны лезде айырбастау.</li>`,
+            h2_4: "4. Нақты есеп: Кім көбірек қайтарады?",
+            calc_p: "Сіздің ай сайынғы шығындарыңыз <b>300 000 теңге</b> (азық-түлік, бензин, коммуналдық қызметтер және кафе) деп есептейік.",
+            th_spend: "Шығындар",
+            th_sum: "Сома",
+            th_kaspi_b: "Kaspi (Бонустар)",
+            th_bcc_t: "BCC (Теңге)",
+            diff_p: "<b>Айырмашылық анық:</b> BCC-мен бір жылда <b>130 000 теңгеден</b> астам таза ақша жинай аласыз. Бұл сіздің әдеттегі сатып алуларыңыз үшін банктен алатын толыққанды \"он үшінші жалақыңыз\".",
+            verdict: `<strong>💡 Қорытынды кеңес:</strong> <br>
+                      Жылдам аударымдар мен үй жанындағы сауда үшін — <b>Kaspi</b> ұстаңыз. <br>
+                      Салықтармен, құжаттармен және ипотекамен жұмыс істеу үшін — <b>Halyk</b> пайдаланыңыз. <br>
+                      Барлық ірі шығындар (азық-түлік, ЖЖС, киім) үшін — нақты ақшаны қайтару үшін <b>BCC</b> картасымен төлеңіз.`,
+            f_h3: "Банктер бойынша сұрақтарыңыз бар ма?",
+            f_p: "Біздің сарапшы шығындарыңыздың түріне қарай карта таңдауға көмектеседі.",
+            f_btn: "Кеңес алу",
+            rel_t: "Сондай-ақ қараңыз:",
+            rel_1_t: "🏠 Ипотека 2026",
+            rel_1_d: "ҚР-дағы жеңілдікті бағдарламаларға шолу",
+            rel_2_t: "📈 Инвестициялар",
+            rel_2_d: "Теңгені қалай жұмыс істетуге болады",
+            footer: "&copy; 2026 AQSHA.KZ — Қазақстанның қаржылық сараптамасы.",
+            calc_rows: [
+                ["Азық-түлік (5%)", "100 000 ₸", "500 Б", "5 000 ₸"],
+                ["ЖЖС / Такси (10%)", "50 000 ₸", "250 Б", "5 000 ₸"],
+                ["Басқа (1%)", "150 000 ₸", "1 500 Б", "1 500 ₸"],
+                ["АЙЫНА ЖИЫНЫ:", "300 000 ₸", "2 250 Б", "11 500 ₸"]
+            ]
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function switchLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick').includes(lang));
+        });
+
+        document.querySelectorAll('[data-t]').forEach(el => {
+            const key = el.getAttribute('data-t');
+            if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        });
+
+        // Обновление таблицы расчета
+        const calcBody = document.getElementById('calc-body');
+        calcBody.innerHTML = '';
+        translations[lang].calc_rows.forEach((row, index) => {
+            const tr = document.createElement('tr');
+            if(index === 3) tr.style.background = 'var(--bg)';
+            if(index === 3) tr.style.fontWeight = 'bold';
+            
+            tr.innerHTML = `
+                <td>${row[0]}</td>
+                <td>${row[1]}</td>
+                <td>${row[2]}</td>
+                <td>${index < 2 ? '<span class="check">'+row[3]+'</span>' : row[3]}</td>
+            `;
+            calcBody.appendChild(tr);
+        });
+
+        // Плейсхолдеры
+        document.getElementById('fbEmail').placeholder = lang === 'ru' ? 'Ваш Email' : 'Сіздің Email';
+        document.getElementById('fbText').placeholder = lang === 'ru' ? 'Ваш вопрос...' : 'Сұрағыңызды жазыңыз...';
+        document.getElementById('footer-text').innerHTML = translations[lang].footer;
+
+        updateDate();
+    }
+
+    function updateDate() {
+        const dateElement = document.getElementById('live-date');
+        const now = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const locale = currentLang === 'ru' ? 'ru-RU' : 'kk-KZ';
+        dateElement.innerText = now.toLocaleDateString(locale, options).replace(' г.', '');
+    }
+
+    const tBtn = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+        tBtn.innerText = theme === 'dark' ? '🌙' : '☀️';
+    }
+
+    tBtn.onclick = () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('site_theme', newTheme);
+    };
+
+    applyTheme(localStorage.getItem('site_theme') || 'light');
+    switchLang('ru'); // По умолчанию
+
+    function sendFeedback() {
+        const email = document.getElementById('fbEmail').value;
+        const text = document.getElementById('fbText').value;
+        if(!email || !text) { 
+            alert(currentLang === 'ru' ? 'Пожалуйста, заполните поля' : 'Өтінемін, өрістерді толтырыңыз'); 
+            return; 
+        }
+        const msg = currentLang === 'ru' ? 'Запрос отправлен эксперту! Ответ придет на ' : 'Сұраныс сарапшыға жіберілді! Жауап мына мекенжайға келеді: ';
+        alert(msg + email);
+        document.getElementById('fbEmail').value = '';
+        document.getElementById('fbText').value = '';
+    }
+</script>
+
+</body>
+</html>

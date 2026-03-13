@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Стратегия Отбасы Банка 2026: Как накопить быстрее и поднять ОП</title>
+    <meta name="description" content="Как быстро поднять оценочный показатель (ОП) в Отбасы банке в 2026 году. Расчет госпремии, секреты семейного пакета и сравнение типов займов.">
+    <meta name="keywords" content="отбасы банк 2026, оценочный показатель, как поднять оп, семейный пакет отбасы, госпремия 2026 казахстан">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #fff5f8;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #f8bbd0;
+            --primary: #c2185b; 
+            --primary-blue: #2563eb;
+            --accent: #fbc02d;
+            --shadow: 0 10px 30px rgba(194, 24, 91, 0.05);
+            --strategy-bg: #fce4ec;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --header-bg: #1e293b;
+            --card-bg: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #4d0a26;
+            --strategy-bg: #310a1c;
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 0; padding: 0; }
+
+        header { 
+            background: var(--header-bg); 
+            border-bottom: 2px solid var(--border); 
+            padding: 15px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+        .logo { font-weight: 900; font-size: 1.5rem; color: #2563eb; text-decoration: none; letter-spacing: -1px; }
+
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        
+        /* Стили для переключателя языков */
+        .lang-switch { display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .lang-btn { background: none; border: none; padding: 5px 12px; cursor: pointer; font-size: 12px; font-weight: 700; color: var(--text-muted); outline: none; }
+        .lang-btn.active { background: var(--primary); color: #fff; }
+
+        #live-date { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: var(--text); 
+            background: var(--bg); 
+            padding: 6px 12px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .theme-toggle { background: var(--bg); border: 2px solid var(--border); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; color: var(--text); }
+
+        .content { max-width: 850px; margin: 40px auto; background: var(--card-bg); padding: 40px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+        .back-link { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.9rem; }
+
+        .bank-label { color: var(--primary); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 10px; display: block; }
+
+        h1 { font-size: 2.3rem; line-height: 1.2; color: var(--text); margin-bottom: 20px; font-weight: 900; }
+        
+        h2 { border-left: 5px solid var(--primary); padding-left: 15px; margin-top: 45px; color: var(--text); font-size: 1.8rem; font-weight: 800; }
+        h3 { color: var(--primary); margin-top: 30px; font-weight: 700; }
+        p { margin-bottom: 22px; font-size: 1.1rem; color: var(--text); opacity: 0.9; }
+        
+        .strategy-card { background: var(--strategy-bg); border-radius: 15px; padding: 25px; margin: 30px 0; border: 1px solid var(--border); }
+        .strategy-card h4 { margin-top: 0; color: var(--primary); font-size: 1.3rem; font-weight: 800; }
+
+        .points-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 15px; border: 1px solid var(--border); overflow-x: auto; display: block; }
+        .points-table table { width: 100%; min-width: 500px; border-collapse: collapse; }
+        .points-table th, .points-table td { border: 1px solid var(--border); padding: 15px; text-align: left; }
+        .points-table th { background: var(--strategy-bg); color: var(--primary); font-weight: 800; }
+
+        .tip { background: rgba(251, 192, 45, 0.15); padding: 20px; border-radius: 12px; border-left: 5px solid var(--accent); margin: 25px 0; font-weight: 600; color: var(--text); }
+
+        .alert-card { background: rgba(37, 99, 235, 0.1); border-radius: 15px; padding: 25px; margin: 30px 0; border: 1px solid var(--primary-blue); }
+
+        .feedback-form { background: var(--strategy-bg); border: 2px solid var(--border); border-radius: 15px; padding: 25px; margin-top: 40px; }
+        .feedback-form input, .feedback-form textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); outline: none; }
+        .feedback-form button { background: var(--primary); color: #fff; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; }
+
+        footer { padding: 40px 5%; text-align: center; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 50px; }
+
+        @media (max-width: 600px) {
+            .content { padding: 20px; margin: 10px; border-radius: 12px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">AQSHA.KZ</a>
+    <div class="header-controls">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('ru')">RU</button>
+            <button class="lang-btn" onclick="switchLang('kk')">KZ</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="live-date">Загрузка...</div>
+    </div>
+</header>
+
+<div class="content">
+    <a href="index.html" class="back-link" data-t="back">← Вернуться на главную</a>
+    
+    <span class="bank-label">Otbasy Bank Strategy 2026</span>
+    <h1 data-t="h1">Отбасы Банк 2026: Как поднять ОП и получить заем раньше</h1>
+
+    <p data-t="intro">Система жилищных накоплений в 2026 году — это не просто депозит, а математический квест. Чтобы получить самый выгодный кредит в стране под 3.5%–5%, нужно понимать, как работает внутренняя логика банка.</p>
+
+    <h2 data-t="h2_1">1. Оценочный показатель (ОП) — почему он важнее денег?</h2>
+    <p data-t="p1">ОП — это мера вашей «дисциплины». В 2026 году для <b>Жилищного займа</b> (когда накопили 50%) минимальный ОП должен быть 16. Если вы просто положите 10 млн тенге сегодня, ваш ОП будет равен 0.</p>
+    
+    <div class="tip" data-t="tip1">
+        Формула проста: чем дольше ваши деньги лежат в банке, тем быстрее растет ОП. Каждая тысяча тенге, пролежавшая месяц, дает баллы.
+    </div>
+
+    <h2 data-t="h2_2">2. Промежуточный vs Жилищный заем</h2>
+    <p data-t="p2">Многие совершают ошибку, забирая <b>Промежуточный заем</b> сразу, как только нашли 50% взноса.</p>
+
+    <div class="points-table">
+        <table>
+            <thead>
+                <tr>
+                    <th data-t="th_cond">Условие</th>
+                    <th data-t="th_prom">Промежуточный заем</th>
+                    <th data-t="th_house">Жилищный заем</th>
+                </tr>
+            </thead>
+            <tbody id="loan-table-body">
+                </tbody>
+        </table>
+    </div>
+
+    <h2 data-t="h2_3">3. Семейный пакет: Как забрать максимум у государства</h2>
+    <p data-t="p3">Государственная премия 20% начисляется максимум на 200 МРП (около 738 000 ₸ в 2026 году). Все, что вы кладете сверху этой суммы на один депозит, премию не получает.</p>
+    
+    <div class="strategy-card" id="family-pack-card">
+        </div>
+
+    <h2 data-t="h2_4">4. Таблица премий на 2026 год</h2>
+    <div class="points-table">
+        <table>
+            <thead>
+                <tr>
+                    <th data-t="th_sum">Сумма накоплений за год</th>
+                    <th data-t="th_bonus">Госпремия (20%)</th>
+                    <th data-t="th_profit">Ваша чистая выгода</th>
+                </tr>
+            </thead>
+            <tbody id="bonus-table-body">
+                </tbody>
+        </table>
+    </div>
+
+    <div class="alert-card" id="alert-card-content">
+        </div>
+
+    <div class="highlight-box" id="secret-box" style="border-left: 5px solid var(--primary); padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+        </div>
+
+    <div class="feedback-form">
+        <h3 data-t="f_h3">Бесплатный расчет стратегии</h3>
+        <p style="font-size: 0.9rem;" data-t="f_p">Укажите, какая сумма у вас есть сейчас и какую квартиру хотите — мы рассчитаем, сколько месяцев вам нужно копить до ОП 16.</p>
+        <input type="email" id="fbEmail" placeholder="Ваш Email или WhatsApp">
+        <textarea id="fbText" rows="3" placeholder="..."></textarea>
+        <button onclick="sendFeedback()" data-t="f_btn">Получить расчет графиков</button>
+    </div>
+</div>
+
+<footer>
+    <p id="footer-text">&copy; 2026 — Практическое руководство по финансам в Казахстане. <br> Не является публичной офертой.</p>
+</footer>
+
+<script>
+    const translations = {
+        ru: {
+            back: "← Вернуться на главную",
+            h1: "Отбасы Банк 2026: Как поднять ОП и получить заем раньше",
+            intro: "Система жилищных накоплений в 2026 году — это не просто депозит, а математический квест. Чтобы получить самый выгодный кредит в стране под 3.5%–5%, нужно понимать, как работает внутренняя логика банка.",
+            h2_1: "1. Оценочный показатель (ОП) — почему он важнее денег?",
+            p1: "ОП — это мера вашей «дисциплины». В 2026 году для <b>Жилищного займа</b> (когда накопили 50%) минимальный ОП должен быть 16. Если вы просто положите 10 млн тенге сегодня, ваш ОП будет равен 0.",
+            tip1: "Формула проста: чем дольше ваши деньги лежат в банке, тем быстрее растет ОП. Каждая тысяча тенге, пролежавшая месяц, дает баллы.",
+            h2_2: "2. Промежуточный vs Жилищный заем",
+            p2: "Многие совершают ошибку, забирая <b>Промежуточный заем</b> сразу, как только нашли 50% взноса.",
+            th_cond: "Условие", th_prom: "Промежуточный заем", th_house: "Жилищный заем",
+            h2_3: "3. Семейный пакет: Как забрать максимум у государства",
+            p3: "Государственная премия 20% начисляется максимум на 200 МРП (около 738 000 ₸ в 2026 году). Все, что вы кладете сверху этой суммы на один депозит, премию не получает.",
+            h2_4: "4. Таблица премий на 2026 год",
+            th_sum: "Сумма накоплений за год", th_bonus: "Госпремия (20%)", th_profit: "Ваша чистая выгода",
+            f_h3: "Бесплатный расчет стратегии",
+            f_p: "Укажите, какая сумма у вас есть сейчас и какую квартиру хотите — мы рассчитаем, сколько месяцев вам нужно копить до ОП 16.",
+            f_btn: "Получить расчет графиков",
+            footer: "&copy; 2026 — Практическое руководство по финансам в Казахстане. <br> Не является публичной офертой.",
+            loanTable: [
+                ["Ставка", "7% - 10% (ГЭСВ выше)", "<span style='color:var(--primary)'>3.5% - 5%</span>"],
+                ["Ожидание", "Сразу (при наличии 50%)", "Нужно копить 3 года + ОП 16"],
+                ["Переплата", "В 2-2.5 раза выше", "Минимальная по рынку"]
+            ],
+            familyPack: `<h4>Лайфхак «Семейный пакет»:</h4>
+                        <p>Откройте 4 депозита: на себя, супругу и двоих детей. Разделите ваши накопления поровну. В конце года вы получите премию на <b>каждый</b> счет. Перед покупкой жилья банк бесплатно объединит эти счета в один с сохранением всех премий и баллов ОП.</p>`,
+            bonusTable: [
+                ["500 000 ₸", "100 000 ₸", "+20% к доходу"],
+                ["738 400 ₸ (лимит)", "~147 680 ₸", "Максимальный бонус"],
+                ["1 500 000 ₸ (1 счет)", "~147 680 ₸", "Выгода падает до 10%"]
+            ],
+            alert: `<h4 style="margin-top:0; color:var(--primary-blue)">Внимание: Покупка депозитов</h4>
+                    <p style="margin-bottom:0">В 2026 году маркетплейс уступок депозитов работает только для близких родственников. Не пытайтесь купить депозит у «чужого» человека через посредников — такие сделки блокируются комплаенс-службой банка.</p>`,
+            secret: `<strong>Секрет быстрого ОП:</strong> Если у вас есть крупная сумма, но нет времени ждать 3 года — внесите её на 4 разных депозита членов семьи, подождите 6-8 месяцев и сделайте «встречную уступку». Это позволит поднять ОП до нужного уровня в разы быстрее, чем на одном счету.`
+        },
+        kk: {
+            back: "← Басты бетке оралу",
+            h1: "Отбасы Банк 2026: Көрсеткішті (ОП) қалай көтеріп, несиені тезірек алуға болады",
+            intro: "2026 жылы тұрғын үй жинақ жүйесі — бұл жай ғана депозит емес, математикалық квест. Елдегі ең тиімді 3.5%–5% несиені алу үшін банктің ішкі логикасын түсіну керек.",
+            h2_1: "1. Бағалау көрсеткіші (ОП) — ол неге ақшадан да маңызды?",
+            p1: "ОП — бұл сіздің «тәртібіңіздің» өлшемі. 2026 жылы <b>Тұрғын үй заемы</b> үшін (50% жинағанда) минималды ОП 16 болуы тиіс. Егер сіз бүгін 10 млн теңге салсаңыз, ОП көрсеткішіңіз 0-ге тең болады.",
+            tip1: "Формула қарапайым: ақшаңыз банкте неғұрлым ұзақ жатса, ОП соғұрлым тез өседі. Бір ай жатқан әрбір мың теңге ұпай береді.",
+            h2_2: "2. Аралық vs Тұрғын үй заемы",
+            p2: "Көптеген адамдар 50% жарнаны тапқан бойда <b>Аралық заемды</b> алып, қателік жасайды.",
+            th_cond: "Шарт", th_prom: "Аралық заем", th_house: "Тұрғын үй заемы",
+            h2_3: "3. Отбасылық пакет: Мемлекеттен қалай барынша көп алуға болады",
+            p3: "20% мемлекеттік сыйлықақы ең көбі 200 АЕК-ке (2026 жылы шамамен 738 000 ₸) беріледі. Осы сомадан артық салған ақшаңызға сыйлықақы жүрмейді.",
+            h2_4: "4. 2026 жылға арналған сыйлықақылар кестесі",
+            th_sum: "Бір жылғы жинақ сомасы", th_bonus: "Мемлекеттік сыйлықақы (20%)", th_profit: "Таза пайдаңыз",
+            f_h3: "Стратегияны тегін есептеу",
+            f_p: "Қазір қанша ақшаңыз бар және қандай пәтер алғыңыз келеді — соны көрсетіңіз, біз сізге ОП 16-ға дейін қанша ай жинау керек екенін есептеп береміз.",
+            f_btn: "Графиктерді алу",
+            footer: "&copy; 2026 — Қазақстандағы қаржы бойынша практикалық нұсқаулық. <br> Жария оферта болып табылмайды.",
+            loanTable: [
+                ["Мөлшерлеме", "7% - 10% (ЖТСМ жоғары)", "<span style='color:var(--primary)'>3.5% - 5%</span>"],
+                ["Күту уақыты", "Бірден (50% болса)", "3 жыл жинау керек + ОП 16"],
+                ["Артық төлем", "2-2.5 есе жоғары", "Нарықтағы ең төменгі"]
+            ],
+            familyPack: `<h4>«Отбасылық пакет» лайфхагы:</h4>
+                        <p>Өзіңізге, жұбайыңызға және екі балаңызға 4 депозит ашыңыз. Жинағыңызды тең бөліңіз. Жыл соңында сіз <b>әрбір</b> шотқа сыйлықақы аласыз. Үй алар алдында банк бұл шоттарды барлық сыйлықақылар мен ОП ұпайларын сақтай отырып, тегін біріктіреді.</p>`,
+            bonusTable: [
+                ["500 000 ₸", "100 000 ₸", "табысқа +20%"],
+                ["738 400 ₸ (лимит)", "~147 680 ₸", "Максималды бонус"],
+                ["1 500 000 ₸ (1 шот)", "~147 680 ₸", "Пайда 10%-ға дейін төмендейді"]
+            ],
+            alert: `<h4 style="margin-top:0; color:var(--primary-blue)">Назар аударыңыз: Депозиттерді сатып алу</h4>
+                    <p style="margin-bottom:0">2026 жылы депозиттерді беру (уступка) маркетплейсі тек жақын туыстар үшін жұмыс істейді. Депозитті делдалдар арқылы «бөтен» адамнан сатып алуға тырыспаңыз — мұндай мәмілелер банктің комплаенс қызметімен бұғатталады.</p>`,
+            secret: `<strong>Жылдам ОП құпиясы:</strong> Егер сізде қомақты сома болса, бірақ 3 жыл күтуге уақыт жоқ болса — оны отбасы мүшелерінің 4 түрлі депозитіне салыңыз, 6-8 ай күтіп, «қарсы уступка» жасаңыз. Бұл ОП-ны бір шотқа қарағанда бірнеше есе жылдам көтеруге мүмкіндік береді.`
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function switchLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick').includes(lang));
+        });
+
+        // Статичные переводы
+        document.querySelectorAll('[data-t]').forEach(el => {
+            const key = el.getAttribute('data-t');
+            if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        });
+
+        // Динамические блоки
+        const loanBody = document.getElementById('loan-table-body');
+        loanBody.innerHTML = '';
+        translations[lang].loanTable.forEach(row => {
+            loanBody.innerHTML += `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td></tr>`;
+        });
+
+        document.getElementById('family-pack-card').innerHTML = translations[lang].familyPack;
+        
+        const bonusBody = document.getElementById('bonus-table-body');
+        bonusBody.innerHTML = '';
+        translations[lang].bonusTable.forEach(row => {
+            bonusBody.innerHTML += `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td></tr>`;
+        });
+
+        document.getElementById('alert-card-content').innerHTML = translations[lang].alert;
+        document.getElementById('secret-box').innerHTML = translations[lang].secret;
+        
+        // Форма
+        document.getElementById('fbEmail').placeholder = lang === 'ru' ? 'Ваш Email или WhatsApp' : 'Email немесе WhatsApp';
+        document.getElementById('fbText').placeholder = lang === 'ru' ? 'Например: Есть 10 млн, хочу квартиру за 25 млн...' : 'Мысалы: 10 млн бар, 25 млн-ға пәтер алғым келеді...';
+        document.getElementById('footer-text').innerHTML = translations[lang].footer;
+
+        updateHeaderDate();
+    }
+
+    function updateHeaderDate() {
+        const dateElement = document.getElementById('live-date');
+        const now = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const loc = currentLang === 'ru' ? 'ru-RU' : 'kk-KZ';
+        dateElement.innerText = now.toLocaleDateString(loc, options).replace(' г.', '');
+    }
+
+    const tBtn = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+        tBtn.innerText = theme === 'dark' ? '🌙' : '☀️';
+    }
+
+    tBtn.onclick = () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('site_theme', newTheme);
+    };
+
+    applyTheme(localStorage.getItem('site_theme') || 'light');
+    switchLang('ru');
+
+    function sendFeedback() {
+        const email = document.getElementById('fbEmail').value;
+        if(!email) { 
+            alert(currentLang === 'ru' ? 'Заполните данные' : 'Деректерді толтырыңыз'); 
+            return; 
+        }
+        const msg = currentLang === 'ru' ? 'Запрос принят! Мы пришлем расчет на ' : 'Сұраныс қабылданды! Есептеуді мына мекенжайға жібереміз: ';
+        alert(msg + email);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Налоговый кодекс 2026 для ИП: Все изменения | Полный гайд</title>
+    <meta name="description" content="Полный гайд по новому Налоговому кодексу РК 2026 для ИП. Упрощенка, розничный налог, всеобщее декларирование и проверка мобильных переводов.">
+    <meta name="keywords" content="налоги ип 2026 казахстан, новый налоговый кодекс рк, розничный налог 2026, форма 270.00, мобильные переводы ип">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --primary: #0284c7; 
+            --accent: #10b981; 
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --warning-bg: rgba(245, 158, 11, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --header-bg: #1e293b;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: rgba(255,255,255,0.1);
+            --primary: #38bdf8; 
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+            --warning-bg: rgba(245, 158, 11, 0.05);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+        header { background: var(--header-bg); border-bottom: 1px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); text-decoration: none; letter-spacing: -1px; }
+
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        
+        .lang-switch { display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .lang-btn { background: none; border: none; padding: 5px 12px; cursor: pointer; font-size: 12px; font-weight: 700; color: var(--text-muted); outline: none; }
+        .lang-btn.active { background: var(--primary); color: #fff; }
+
+        #live-date { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: var(--text); 
+            background: var(--bg); 
+            padding: 6px 12px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .theme-toggle { background: var(--bg); border: 2px solid var(--border); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; color: var(--text); }
+
+        .container { max-width: 850px; margin: 40px auto; background: var(--card-bg); padding: 40px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+        .back-link { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 700; display: inline-block; margin-bottom: 20px; }
+
+        h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; background: linear-gradient(to right, var(--accent), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; font-weight: 800; }
+        
+        .tax-card { background: var(--bg); border: 1px solid var(--border); border-radius: 15px; padding: 25px; margin: 25px 0; }
+        h2 { color: var(--primary); margin-top: 40px; font-weight: 700; border-left: 4px solid var(--accent); padding-left: 15px; }
+        h3 { font-size: 1.2rem; margin-top: 0; color: var(--text); }
+        
+        .comparison-table { overflow-x: auto; margin: 25px 0; }
+        table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid var(--border); }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--warning-bg); color: var(--primary); font-weight: 700; }
+
+        .warning { background: var(--warning-bg); border-left: 4px solid #f59e0b; padding: 20px; margin: 30px 0; border-radius: 8px; color: var(--text); }
+
+        .feedback-form { background: var(--warning-bg); border: 2px solid var(--border); border-radius: 15px; padding: 25px; margin-top: 40px; }
+        .feedback-form input, .feedback-form textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); outline: none; }
+        .feedback-form button { background: var(--primary); color: #fff; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; }
+
+        footer { margin-top: 50px; text-align: center; color: var(--text-muted); border-top: 1px solid var(--border); padding: 30px; font-size: 13px; }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; margin: 10px; border-radius: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">AQSHA.KZ</a>
+    <div class="header-controls">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('ru')">RU</button>
+            <button class="lang-btn" onclick="switchLang('kk')">KZ</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="live-date">Загрузка...</div>
+    </div>
+</header>
+
+<div class="container">
+    <a href="index.html" class="back-link" data-t="back">← Вернуться на главную</a>
+    
+    <h1 data-t="h1">Налоговый кодекс 2026: Главное для ИП</h1>
+
+    <p data-t="p_intro">2026 год завершил переход к полной прозрачности бизнеса. Если раньше многие работали «на доверии», то новый Налоговый кодекс автоматизировал контроль каждого заработанного тенге.</p>
+
+    <h2 data-t="h2_1">1. Выбор режима: Где налоги меньше?</h2>
+    <p data-t="p_regime">В 2026 году <strong>Розничный налог</strong> стал спасением для тех, кто работает с юрлицами, но хочет оставаться на льготном режиме.</p>
+
+    
+
+    <div class="tax-card">
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-t="th_regime">Режим</th>
+                        <th data-t="th_rate">Ставка</th>
+                        <th data-t="th_desc">Особенности 2026</th>
+                    </tr>
+                </thead>
+                <tbody id="tax-table-body">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h2 data-t="h2_2">2. Единый платеж за сотрудников</h2>
+    <p data-t="p_single_pay">Если у вас есть работники, в 2026 году ставка <strong>Единого платежа</strong> (включает ОПВ, соцотчисления, ОСМС и подоходный) составляет <b>21.5%</b> от фонда оплаты труда. Это проще, чем считать 5 разных налогов по отдельности.</p>
+
+    <div class="warning" data-t="warn_osms">
+        <strong>Важно:</strong> С 2026 года несвоевременная уплата ОСМС за сотрудников блокирует не только медицинские услуги, но и возможность получения бизнес-кредитов в банках.
+    </div>
+
+    <h2 data-t="h2_3">3. Мобильные переводы и ИИ-контроль</h2>
+    <p data-t="p_mobile">Налоговая больше не ищет нарушения вручную. В 2026 году работает система «Риск-анализа»:
+        <ul id="mobile-list">
+            </ul>
+    </p>
+
+    <h2 data-t="h2_4">4. Декларация 270.00: Что указывать?</h2>
+    <p data-t="p_decl">К 2026 году всеобщее декларирование охватило всех. В форме 270.00 теперь нужно обязательно указывать:
+        <ol id="decl-list">
+            </ol>
+    </p>
+
+    <div class="tax-card" style="border-left: 5px solid var(--primary);">
+        <h3 data-t="lh_h3">Лайфхак 2026: Как платить меньше</h3>
+        <p data-t="lh_p">Используйте <b>стандартные налоговые вычеты</b>. Если вы ИП на общеустановленном режиме, вы можете вычитать расходы на обучение детей и платные медицинские услуги из налогооблагаемой базы. Сохраняйте все счета-фактуры в электронном виде.</p>
+    </div>
+
+    <div class="feedback-form">
+        <h3 data-t="f_h3">Нужна помощь с формой 270.00?</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 15px;" data-t="f_p">Заполните данные, и мы вышлем вам чек-лист по заполнению декларации для ИП за 2025-2026 годы.</p>
+        <input type="email" id="fbEmail" placeholder="Ваш Email">
+        <textarea id="fbText" rows="3" placeholder="Ваш вопрос..."></textarea>
+        <button onclick="sendFeedback()" data-t="f_btn">Получить чек-лист</button>
+    </div>
+
+    <div class="related-box" style="margin-top: 30px;">
+        <h3 style="margin-bottom: 15px; color: var(--text);" data-t="rel_h3">Полезные материалы:</h3>
+        <div class="related-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <a href="article-4.html" style="background: var(--bg); padding: 15px; border-radius: 12px; text-decoration: none; color: var(--text); border: 1px solid var(--border);">
+                <b data-t="rel_1">₸ Цифровой тенге</b>
+                <span style="font-size: 0.8rem; color: var(--text-muted);" data-t="rel_1_sub">Прозрачность для бизнеса</span>
+            </a>
+            <a href="article-2.html" style="background: var(--bg); padding: 15px; border-radius: 12px; text-decoration: none; color: var(--text); border: 1px solid var(--border);">
+                <b data-t="rel_2">🏠 Ипотека для ИП</b>
+                <span style="font-size: 0.8rem; color: var(--text-muted);" data-t="rel_2_sub">Как подтвердить доход</span>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p id="footer-text">&copy; 2026 — Проводник по налогам Казахстана. <br> Информация носит справочный характер.</p>
+</footer>
+
+<script>
+    const translations = {
+        ru: {
+            back: "← Вернуться на главную",
+            h1: "Налоговый кодекс 2026: Главное для ИП",
+            p_intro: "2026 год завершил переход к полной прозрачности бизнеса. Если раньше многие работали «на доверии», то новый Налоговый кодекс автоматизировал контроль каждого заработанного тенге.",
+            h2_1: "1. Выбор режима: Где налоги меньше?",
+            p_regime: "В 2026 году <strong>Розничный налог</strong> стал спасением для тех, кто работает с юрлицами, но хочет оставаться на льготном режиме.",
+            th_regime: "Режим", th_rate: "Ставка", th_desc: "Особенности 2026",
+            taxTable: [
+                ["<b>Упрощенка</b>", "3%", "Запрещена для консультационных услуг"],
+                ["<b>Розничный налог</b>", "4% / 8%", "Освобождение от НДС до 2.2 млрд ₸"],
+                ["<b>Самозанятые</b>", "4%", "Только через приложение «E-Salyq Business»"]
+            ],
+            h2_2: "2. Единый платеж за сотрудников",
+            p_single_pay: "Если у вас есть работники, в 2026 году ставка <strong>Единого платежа</strong> составляет <b>21.5%</b> от фонда оплаты труда. Это проще, чем считать 5 разных налогов по отдельности.",
+            warn_osms: "<strong>Важно:</strong> С 2026 года несвоевременная уплата ОСМС за сотрудников блокирует не только медицинские услуги, но и возможность получения бизнес-кредитов в банках.",
+            h2_3: "3. Мобильные переводы и ИИ-контроль",
+            p_mobile: "Налоговая больше не ищет нарушения вручную. В 2026 году работает система «Риск-анализа»:",
+            mobileList: [
+                "Если на личный счет Kaspi Gold падает <b>100+ переводов</b> от разных лиц 3 месяца подряд — уведомление приходит автоматически.",
+                "Штраф за отсутствие фискального чека при переводе — от 15 МРП при первом нарушении."
+            ],
+            h2_4: "4. Декларация 270.00: Что указывать?",
+            p_decl: "К 2026 году всеобщее декларирование охватило всех. В форме 270.00 теперь нужно обязательно указывать:",
+            declList: [
+                "Наличные деньги (лимит — 10 000 МРП).",
+                "Дорогие подарки (антиквариат, техника дороже 1000 МРП).",
+                "Криптовалюту и ценные бумаги на зарубежных брокерах."
+            ],
+            lh_h3: "Лайфхак 2026: Как платить меньше",
+            lh_p: "Используйте <b>стандартные налоговые вычеты</b>. Если вы ИП на общеустановленном режиме, вы можете вычитать расходы на обучение детей и платные медицинские услуги из налогооблагаемой базы.",
+            f_h3: "Нужна помощь с формой 270.00?",
+            f_p: "Заполните данные, и мы вышлем вам чек-лист по заполнению декларации для ИП за 2025-2026 годы.",
+            f_btn: "Получить чек-лист",
+            rel_h3: "Полезные материалы:",
+            rel_1: "₸ Цифровой тенге", rel_1_sub: "Прозрачность для бизнеса",
+            rel_2: "🏠 Ипотека для ИП", rel_2_sub: "Как подтвердить доход",
+            footer: "&copy; 2026 — Проводник по налогам Казахстана. <br> Информация носит справочный характер.",
+            alert_email: "Укажите Email",
+            alert_success: "Чек-лист по декларации отправлен на ",
+            f_holder: "Ваш вопрос (например: как отразить доход от крипты?)..."
+        },
+        kk: {
+            back: "← Басты бетке оралу",
+            h1: "Салық кодексі 2026: ЖК үшін басты жаңалықтар",
+            p_intro: "2026 жылы бизнестің толық ашықтығына көшу аяқталды. Егер бұрын көбісі «сеніммен» жұмыс істесе, жаңа Салық кодексі әрбір тапқан теңгені бақылауды автоматтандырды.",
+            h2_1: "1. Режимді таңдау: Салық қайда азырақ?",
+            p_regime: "2026 жылы <strong>Бөлшек салық</strong> заңды тұлғалармен жұмыс істейтін, бірақ жеңілдетілген режимде қалғысы келетіндер үшін нағыз құтқарушы болды.",
+            th_regime: "Режим", th_rate: "Мөлшерлеме", th_desc: "2026 ерекшеліктері",
+            taxTable: [
+                ["<b>Оңайлатылған</b>", "3%", "Консультациялық қызметтер үшін тыйым салынған"],
+                ["<b>Бөлшек салық</b>", "4% / 8%", "2.2 млрд ₸ дейін ҚҚС-тан босату"],
+                ["<b>Өзін-өзі жұмыспен қамтушылар</b>", "4%", "Тек «E-Salyq Business» қосымшасы арқылы"]
+            ],
+            h2_2: "2. Қызметкерлер үшін бірыңғай төлем",
+            p_single_pay: "Егер сізде жұмысшылар болса, 2026 жылы <strong>Бірыңғай төлем</strong> мөлшерлемесі еңбекақы қорының <b>21.5%</b> құрайды. Бұл 5 бөлек салықты жеке есептегеннен әлдеқайда оңай.",
+            warn_osms: "<strong>Маңызды:</strong> 2026 жылдан бастап қызметкерлер үшін МӘМС-ті уақтылы төлемеу тек медициналық қызметтерді ғана емес, сонымен қатар банктерден бизнес-несие алу мүмкіндігін де блоктайды.",
+            h2_3: "3. Мобильді аударымдар және ИИ-бақылау",
+            p_mobile: "Салық қызметі бұдан былай бұзушылықтарды қолмен іздемейді. 2026 жылы «Тәуекел-талдау» жүйесі жұмыс істейді:",
+            mobileList: [
+                "Егер Kaspi Gold жеке шотына қатарынан 3 ай бойы әртүрлі адамдардан <b>100+ аударым</b> түссе — хабарлама автоматты түрде келеді.",
+                "Аударым кезінде фискалдық чек бермегені үшін айыппұл — бірінші рет бұзғанда 15 АЕК-тен басталады."
+            ],
+            h2_4: "4. 270.00 декларациясы: Не көрсету керек?",
+            p_decl: "2026 жылға қарай жалпыға бірдей декларациялау бәрін қамтыды. 270.00 нысанында енді міндетті түрде көрсету қажет:",
+            declList: [
+                "Қолма-қол ақша (лимит — 10 000 АЕК).",
+                "Қымбат сыйлықтар (антиквариат, 1000 АЕК-тен қымбат техника).",
+                "Шетелдік брокерлердегі криптовалюта мен бағалы қағаздар."
+            ],
+            lh_h3: "Лайфхак 2026: Салықты қалай азайтуға болады",
+            lh_p: "<b>Стандартты салық шегерімдерін</b> қолданыңыз. Егер сіз жалпыға бірдей режимдегі ЖК болсаңыз, балалардың оқуына және ақылы медициналық қызметтерге жұмсалған шығындарды салық салынатын базадан шегере аласыз.",
+            f_h3: "270.00 нысаны бойынша көмек керек пе?",
+            f_p: "Мәліметтерді толтырыңыз, біз сізге 2025-2026 жылдарға арналған ЖК декларациясын толтыру бойынша чек-лист жібереміз.",
+            f_btn: "Чек-лист алу",
+            rel_h3: "Пайдалы материалдар:",
+            rel_1: "₸ Цифрлық теңге", rel_1_sub: "Бизнес үшін ашықтық",
+            rel_2: "🏠 ЖК үшін ипотека", rel_2_sub: "Табысты қалай растауға болады",
+            footer: "&copy; 2026 — Қазақстан салықтары бойынша жолбасшы. <br> Ақпарат анықтамалық сипатта берілген.",
+            alert_email: "Email көрсетіңіз",
+            alert_success: "Декларация бойынша чек-лист мына мекенжайға жіберілді: ",
+            f_holder: "Сұрағыңыз (мысалы: крипто табысын қалай көрсетеді?)..."
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function switchLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick').includes(lang));
+        });
+
+        // Basic text
+        document.querySelectorAll('[data-t]').forEach(el => {
+            const key = el.getAttribute('data-t');
+            if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        });
+
+        // Table
+        const tableBody = document.getElementById('tax-table-body');
+        tableBody.innerHTML = '';
+        translations[lang].taxTable.forEach(row => {
+            tableBody.innerHTML += `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td></tr>`;
+        });
+
+        // Mobile list
+        const mobileList = document.getElementById('mobile-list');
+        mobileList.innerHTML = '';
+        translations[lang].mobileList.forEach(item => {
+            mobileList.innerHTML += `<li>${item}</li>`;
+        });
+
+        // Decl list
+        const declList = document.getElementById('decl-list');
+        declList.innerHTML = '';
+        translations[lang].declList.forEach(item => {
+            declList.innerHTML += `<li>${item}</li>`;
+        });
+
+        // Inputs & Footer
+        document.getElementById('fbText').placeholder = translations[lang].f_holder;
+        document.getElementById('footer-text').innerHTML = translations[lang].footer;
+        
+        updateHeaderDate();
+    }
+
+    function updateHeaderDate() {
+        const dateElement = document.getElementById('live-date');
+        const now = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const locale = currentLang === 'ru' ? 'ru-RU' : 'kk-KZ';
+        dateElement.innerText = now.toLocaleDateString(locale, options).replace(' г.', '');
+    }
+
+    const tBtn = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+        tBtn.innerText = theme === 'dark' ? '🌙' : '☀️';
+    }
+
+    tBtn.onclick = () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('site_theme', newTheme);
+    };
+
+    function sendFeedback() {
+        const email = document.getElementById('fbEmail').value;
+        if(!email) { alert(translations[currentLang].alert_email); return; }
+        alert(translations[currentLang].alert_success + email);
+    }
+
+    // Init
+    const savedTheme = localStorage.getItem('site_theme') || 'light';
+    applyTheme(savedTheme);
+    switchLang('ru');
+</script>
+
+</body>
+</html>

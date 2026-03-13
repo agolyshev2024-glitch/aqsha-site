@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Инвестиции на KASE и AIX 2026 | AQSHA.KZ</title>
+    <meta name="description" content="Как купить акции в Казахстане через смартфон в 2026 году. Обзор брокеров Freedom, Halyk, BCC и топ дивидендных акций РК.">
+    <meta name="keywords" content="акции казахстан 2026, купить акции kase, инвестиции aix, дивиденды казатомпром, брокеры рк">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --primary: #0284c7; 
+            --accent: #10b981;
+            --danger: #e11d48;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --header-bg: #1e293b;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: rgba(255,255,255,0.1);
+            --primary: #38bdf8;
+            --accent: #34d399;
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.8; }
+
+        header { background: var(--header-bg); border-bottom: 2px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 900; font-size: 1.5rem; color: #2563eb; text-decoration: none; letter-spacing: -1px; }
+
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        
+        #live-date { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: var(--text); 
+            background: var(--bg); 
+            padding: 6px 12px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .lang-switch { display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .lang-btn { background: none; border: none; padding: 6px 12px; cursor: pointer; font-size: 13px; font-weight: 700; color: var(--text); outline: none; }
+        .lang-btn.active { background: var(--primary); color: #fff; }
+
+        .theme-toggle { background: var(--bg); border: 2px solid var(--border); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; color: var(--text); }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .back-link { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 20px; }
+        
+        h1 { font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.1; background: linear-gradient(to right, var(--accent), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 20px 0; font-weight: 800; }
+
+        .alert-banner { background: rgba(16, 185, 129, 0.1); border: 2px solid var(--accent); padding: 30px; border-radius: 25px; margin: 40px 0; position: relative; }
+        .alert-banner::before { content: attr(data-label); position: absolute; top: -15px; left: 20px; background: var(--accent); color: white; padding: 5px 15px; border-radius: 8px; font-weight: 800; font-size: 0.7rem; }
+
+        h2 { color: var(--primary); font-size: 1.8rem; margin-top: 50px; font-weight: 700; }
+        
+        .step-card { background: var(--card-bg); padding: 35px; border-radius: 24px; border: 1px solid var(--border); margin: 25px 0; box-shadow: var(--shadow); }
+        .step-card h3 { margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 12px; font-weight: 800; }
+        .step-number { background: var(--primary); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem; font-weight: 800; flex-shrink: 0; }
+
+        .stock-table-wrapper { overflow-x: auto; margin: 30px 0; border-radius: 15px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+        .stock-table { width: 100%; border-collapse: collapse; background: var(--card-bg); }
+        .stock-table th { background: rgba(56, 189, 248, 0.1); padding: 15px; text-align: left; color: var(--primary); font-size: 0.9rem; }
+        .stock-table td { padding: 15px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+
+        .invest-calc { background: var(--card-bg); border: 2px solid var(--primary); padding: 30px; border-radius: 24px; margin: 40px 0; }
+        .invest-calc input { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); outline: none; }
+        .invest-calc button { background: var(--primary); color: #fff; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: 700; cursor: pointer; }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
+        .feature-box { background: var(--card-bg); padding: 25px; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+        .feature-box h4 { margin: 0 0 10px 0; color: var(--primary); }
+
+        .safe-action { border-left: 4px solid var(--primary); background: rgba(56, 189, 248, 0.05); padding: 20px; margin: 20px 0; border-radius: 0 15px 15px 0; color: var(--text); }
+
+        .feedback-form { background: var(--card-bg); border: 2px solid var(--border); border-radius: 15px; padding: 25px; margin-top: 40px; box-shadow: var(--shadow); }
+        .feedback-form input, .feedback-form textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); outline: none; }
+        .feedback-form button { background: var(--primary); color: #fff; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; }
+
+        footer { margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding: 40px; color: var(--text-muted); font-size: 13px; }
+
+        @media (max-width: 600px) {
+            .step-card { padding: 20px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">AQSHA.KZ</a>
+    <div class="header-controls">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('ru')">RU</button>
+            <button class="lang-btn" onclick="switchLang('kk')">KZ</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="live-date">Загрузка...</div>
+    </div>
+</header>
+
+<div class="container">
+    <a href="index.html" class="back-link" data-t="back">← Назад на главную</a>
+    
+    <h1 data-t="h1">Инвестиции на KASE и AIX: Как купить акции в Казахстане</h1>
+    <p style="font-size: 1.1rem; color: var(--text-muted);" data-t="intro">Фондовый рынок Казахстана в 2026 году — это простой способ защитить накопления от инфляции и стать совладельцем крупнейших компаний.</p>
+
+    <div class="alert-banner" id="alertBanner" data-label="💰 ВЫГОДА">
+        <p data-t="alert_p"><strong>Важный бонус:</strong> Доходы физических лиц в виде дивидендов по акциям, торгуемым на KASE и AIX, полностью освобождены от подоходного налога (ИПН) в 2026 году. Это делает локальный рынок приоритетным для новичков.</p>
+    </div>
+
+    <h2 data-t="h2_v">KASE vs AIX: Где лучше покупать?</h2>
+    <div class="feature-grid">
+        <div class="feature-box">
+            <h4 data-t="f1_h">KASE (Алматы)</h4>
+            <p style="font-size: 0.9rem;" data-t="f1_p">Главная биржа страны. Здесь торгуются «голубые фишки» (Казатомпром, Народный, КМГ) в тенге. Идеальна для дивидендов.</p>
+        </div>
+        <div class="feature-box">
+            <h4 data-t="f2_h">AIX (Астана)</h4>
+            <p style="font-size: 0.9rem;" data-t="f2_p">Биржа в МФЦА. Работает по английскому праву. Удобна для покупки акций в долларах и участия в новых IPO.</p>
+        </div>
+    </div>
+
+    <h2 data-t="h2_b">Популярные брокеры 2026</h2>
+    <div class="feature-grid">
+        <div class="feature-box">
+            <h4>Freedom Broker</h4>
+            <p style="font-size: 0.9rem; margin-bottom: 0;" data-t="b1_p">Лидер по IPO и доступу к глобальным рынкам. Удобное приложение Tradernet.</p>
+        </div>
+        <div class="feature-box">
+            <h4>Halyk Finance</h4>
+            <p style="font-size: 0.9rem; margin-bottom: 0;" data-t="b2_p">Максимальная надежность и интеграция с банковским приложением Halyk.</p>
+        </div>
+    </div>
+
+    <div class="invest-calc">
+        <h3 style="margin-top:0; color:var(--primary);" data-t="calc_h">🧮 Калькулятор сложного процента</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 15px;" data-t="calc_p">Узнайте, сколько вы накопите при доходности 12% годовых (средняя по рынку РК):</p>
+        <input type="number" id="monthlySum" placeholder="Сумма пополнения в месяц (₸)">
+        <input type="number" id="invPeriod" placeholder="На сколько лет?">
+        <button onclick="calculateMagic()" data-t="calc_btn">Рассчитать капитал</button>
+        <div id="calcResult" style="margin-top: 20px; font-weight: 800; color: var(--accent); font-size: 1.2rem;"></div>
+    </div>
+
+    <h2 data-t="h2_t">Топ дивидендных акций РК</h2>
+    <div class="stock-table-wrapper">
+        <table class="stock-table">
+            <thead>
+                <tr>
+                    <th data-t="th1">Компания</th>
+                    <th data-t="th2">Сектор</th>
+                    <th data-t="th3">Тикер</th>
+                    <th data-t="th4">Доходность</th>
+                </tr>
+            </thead>
+            <tbody id="stockBody">
+                </tbody>
+        </table>
+    </div>
+
+    <h2 data-t="h2_s">3 шага к первой акции</h2>
+    
+    <div class="step-card">
+        <h3><div class="step-number">1</div> <span data-t="s1_h">Удаленное открытие счета</span></h3>
+        <p data-t="s1_p">В 2026 году визит в офис не требуется. Скачайте приложение брокера и пройдите Digital ID.</p>
+        <div class="safe-action" data-t="s1_a">Для регистрации достаточно удостоверения личности и 10 минут времени.</div>
+    </div>
+
+    <div class="step-card">
+        <h3><div class="step-number">2</div> <span data-t="s2_h">Пополнение счета</span></h3>
+        <p data-t="s2_p">Переведите тенге с любой банковской карты РК. Внутри экосистем (например, Freedom или Halyk) пополнение обычно без комиссии.</p>
+        <div class="safe-action" data-t="s2_a"><strong>Совет 2026:</strong> Настройте «Автоинвест» — автоматическое списание 10-20 тысяч тенге в месяц сразу после зарплаты.</div>
+    </div>
+
+    <div class="step-card">
+        <h3><div class="step-number">3</div> <span data-t="s3_h">Покупка актива</span></h3>
+        <p data-t="s3_p">Найдите нужный тикер (например, KMGZ) в поиске приложения и нажмите кнопку «Купить».</p>
+        <div class="safe-action" data-t="s3_a">Помните: биржи работают в будние дни. Лучшее время для сделок — с 11:00 до 17:00 по времени Астаны.</div>
+    </div>
+
+    <div class="feedback-form">
+        <h3 data-t="f_h">Помочь выбрать брокера?</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 15px;" data-t="f_p">Оставьте контакты, и мы пришлем сравнительную таблицу комиссий всех брокеров Казахстана на 2026 год.</p>
+        <input type="email" id="fbEmail" placeholder="Ваш Email">
+        <textarea id="fbText" rows="3" placeholder="Какой капитал планируете инвестировать?"></textarea>
+        <button onclick="sendFeedback()" data-t="f_btn">Получить сравнение</button>
+    </div>
+
+</div>
+
+<footer>
+    <p id="footer-text">&copy; 2026 AQSHA.KZ — Ваш гид по фондовому рынку РК. <br> Инвестиции сопряжены с риском.</p>
+</footer>
+
+<script>
+    const translations = {
+        ru: {
+            back: "← Назад на главную",
+            h1: "Инвестиции на KASE и AIX: Как купить акции в Казахстане",
+            intro: "Фондовый рынок Казахстана в 2026 году — это простой способ защитить накопления от инфляции и стать совладельцем крупнейших компаний.",
+            alert_label: "💰 ВЫГОДА",
+            alert_p: "<strong>Важный бонус:</strong> Доходы физических лиц в виде дивидендов по акциям, торгуемым на KASE и AIX, полностью освобождены от подоходного налога (ИПН) в 2026 году. Это делает локальный рынок приоритетным для новичков.",
+            h2_v: "KASE vs AIX: Где лучше покупать?",
+            f1_h: "KASE (Алматы)", f1_p: "Главная биржа страны. Здесь торгуются «голубые фишки» (Казатомпром, Народный, КМГ) в тенге. Идеальна для дивидендов.",
+            f2_h: "AIX (Астана)", f2_p: "Биржа в МФЦА. Работает по английскому праву. Удобна для покупки акций в долларах и участия в новых IPO.",
+            h2_b: "Популярные брокеры 2026",
+            b1_p: "Лидер по IPO и доступу к глобальным рынкам. Удобное приложение Tradernet.",
+            b2_p: "Максимальная надежность и интеграция с банковским приложением Halyk.",
+            calc_h: "🧮 Калькулятор сложного процента",
+            calc_p: "Узнайте, сколько вы накопите при доходности 12% годовых (средняя по рынку РК):",
+            calc_btn: "Рассчитать капитал",
+            calc_res: "Через {y} лет вы накопите:",
+            h2_t: "Топ дивидендных акций РК",
+            th1: "Компания", th2: "Сектор", th3: "Тикер", th4: "Доходность",
+            stocks: [
+                ["Казатомпром", "Уран", "KAP", "~10-12%"],
+                ["КазМунайГаз", "Нефть", "KMGZ", "~8-9%"],
+                ["Kaspi.kz", "Финтех", "KSPI", "~7%"],
+                ["KEGOC", "Энергетика", "KCZ", "~9%"]
+            ],
+            h2_s: "3 шага к первой акции",
+            s1_h: "Удаленное открытие счета", s1_p: "В 2026 году визит в офис не требуется. Скачайте приложение брокера и пройдите Digital ID.", s1_a: "Для регистрации достаточно удостоверения личности и 10 минут времени.",
+            s2_h: "Пополнение счета", s2_p: "Переведите тенге с любой банковской карты РК. Внутри экосистем (например, Freedom или Halyk) пополнение обычно без комиссии.", s2_a: "<strong>Совет 2026:</strong> Настройте «Автоинвест» — автоматическое списание 10-20 тысяч тенге в месяц сразу после зарплаты.",
+            s3_h: "Покупка актива", s3_p: "Найдите нужный тикер (например, KMGZ) в поиске приложения и нажмите кнопку «Купить».", s3_a: "Помните: биржи работают в будние дни. Лучшее время для сделок — с 11:00 до 17:00 по времени Астаны.",
+            f_h: "Помочь выбрать брокера?", f_p: "Оставьте контакты, и мы пришлем сравнительную таблицу комиссий всех брокеров Казахстана на 2026 год.",
+            f_btn: "Получить сравнение", f_hold_m: "Сумма пополнения в месяц (₸)", f_hold_y: "На сколько лет?", f_hold_t: "Какой капитал планируете инвестировать?",
+            footer: "&copy; 2026 AQSHA.KZ — Ваш гид по фондовому рынку РК. <br> Инвестиции сопряжены с риском.",
+            msg_ok: "Запрос принят!", msg_err: "Введите сумму и срок"
+        },
+        kk: {
+            back: "← Басты бетке қайту",
+            h1: "KASE және AIX-ке инвестициялар: Қазақстанда акцияларды қалай сатып алуға болады",
+            intro: "2026 жылы Қазақстанның қор нарығы — жинақтарды инфляциядан қорғаудың және ірі компаниялардың ортақ иесі болудың қарапайым тәсілі.",
+            alert_label: "💰 ТИІМДІЛІК",
+            alert_p: "<strong>Маңызды бонус:</strong> 2026 жылы KASE және AIX-те саудаланатын акциялар бойынша дивиденд түріндегі жеке тұлғалардың табыстары табыс салығынан (ЖТС) толық босатылған. Бұл жергілікті нарықты жаңадан бастаушылар үшін басымдыққа ие етеді.",
+            h2_v: "KASE vs AIX: Қайдан сатып алған дұрыс?",
+            f1_h: "KASE (Алматы)", f1_p: "Елдің басты биржасы. Мұнда теңгемен «көгілдір фишкалар» (Қазатомөнеркәсіп, Халық, ҚМГ) саудаланады. Дивидендтер үшін өте қолайлы.",
+            f2_h: "AIX (Астана)", f2_p: "АХҚО-дағы биржа. Ағылшын құқығы бойынша жұмыс істейді. Акцияларды доллармен сатып алуға және жаңа IPO-ларға қатысуға ыңғайлы.",
+            h2_b: "2026 жылғы танымал брокерлер",
+            b1_p: "IPO және жаһандық нарықтарға қолжетімділік бойынша көшбасшы. Tradernet қосымшасы ыңғайлы.",
+            b2_p: "Максималды сенімділік және Halyk банктік қосымшасымен интеграция.",
+            calc_h: "🧮 Күрделі пайыз калькуляторы",
+            calc_p: "Жылына 12% кірістілікпен (ҚР нарығы бойынша орташа) қанша жинайтыныңызды біліңіз:",
+            calc_btn: "Капиталды есептеу",
+            calc_res: "{y} жылдан кейін сіз жинайсыз:",
+            h2_t: "ҚР топ дивидендтік акциялары",
+            th1: "Компания", th2: "Сектор", th3: "Тикер", th4: "Кірістілік",
+            stocks: [
+                ["Қазатомөнеркәсіп", "Уран", "KAP", "~10-12%"],
+                ["ҚазМұнайГаз", "Мұнай", "KMGZ", "~8-9%"],
+                ["Kaspi.kz", "Финтех", "KSPI", "~7%"],
+                ["KEGOC", "Энергетика", "KCZ", "~9%"]
+            ],
+            h2_s: "Бірінші акцияға 3 қадам",
+            s1_h: "Шотты қашықтан ашу", s1_p: "2026 жылы кеңсеге барудың қажеті жоқ. Брокер қосымшасын жүктеп алып, Digital ID-ден өтіңіз.", s1_a: "Тіркелу үшін жеке куәлік және 10 минут уақыт жеткілікті.",
+            s2_h: "Шотты толтыру", s2_p: "Кез келген ҚР банктік картасынан теңге аударыңыз. Экожүйелер ішінде (мысалы, Freedom немесе Halyk) толтыру әдетте комиссиясыз.", s2_a: "<strong>2026 кеңесі:</strong> «Автоинвест» функциясын орнатыңыз — ай сайын жалақыдан кейін бірден 10-20 мың теңгені автоматты түрде аудару.",
+            s3_h: "Активті сатып алу", s3_p: "Қосымшаның іздеу бөлімінен қажетті тикерді (мысалы, KMGZ) тауып, «Сатып алу» батырмасын басыңыз.", s3_a: "Есіңізде болсын: биржалар жұмыс күндері істейді. Мәмілелер үшін ең қолайлы уақыт — Астана уақытымен 11:00-ден 17:00-ге дейін.",
+            f_h: "Брокер таңдауға көмектесу керек пе?", f_p: "Байланыс мәліметтерін қалдырыңыз, біз сізге 2026 жылға арналған Қазақстанның барлық брокерлерінің комиссияларының салыстырмалы кестесін жібереміз.",
+            f_btn: "Салыстыруды алу", f_hold_m: "Айына толықтыру сомасы (₸)", f_hold_y: "Неше жылға?", f_hold_t: "Қандай капитал инвестициялауды жоспарлайсыз?",
+            footer: "&copy; 2026 AQSHA.KZ — Сіздің ҚР қор нарығы бойынша нұсқаулығыңыз. <br> Инвестициялар тәуекелмен байланысты.",
+            msg_ok: "Сұраныс қабылданды!", msg_err: "Соманы және мерзімді енгізіңіз"
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function switchLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick').includes(lang));
+        });
+
+        document.querySelectorAll('[data-t]').forEach(el => {
+            const key = el.getAttribute('data-t');
+            if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        });
+
+        // Banner label
+        document.getElementById('alertBanner').setAttribute('data-label', translations[lang].alert_label);
+
+        // Inputs placeholders
+        document.getElementById('monthlySum').placeholder = translations[lang].f_hold_m;
+        document.getElementById('invPeriod').placeholder = translations[lang].f_hold_y;
+        document.getElementById('fbText').placeholder = translations[lang].f_hold_t;
+
+        // Table
+        const body = document.getElementById('stockBody');
+        body.innerHTML = '';
+        translations[lang].stocks.forEach(row => {
+            body.innerHTML += `<tr>
+                <td>${row[0]}</td>
+                <td>${row[1]}</td>
+                <td>${row[2]}</td>
+                <td style="color:var(--accent); font-weight:800;">${row[3]}</td>
+            </tr>`;
+        });
+
+        // Footer
+        document.getElementById('footer-text').innerHTML = translations[lang].footer;
+        
+        updateDates();
+        if(document.getElementById('calcResult').innerHTML !== "") calculateMagic();
+    }
+
+    function updateDates() {
+        const now = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const locale = currentLang === 'ru' ? 'ru-RU' : 'kk-KZ';
+        document.getElementById('live-date').innerText = now.toLocaleDateString(locale, options).replace(' г.', '');
+    }
+
+    const tBtn = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+        tBtn.innerText = theme === 'dark' ? '🌙' : '☀️';
+    }
+    tBtn.onclick = () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('site_theme', newTheme);
+    };
+
+    function calculateMagic() {
+        const m = parseFloat(document.getElementById('monthlySum').value) || 0;
+        const y = parseInt(document.getElementById('invPeriod').value) || 0;
+        const rate = 0.12 / 12; 
+        const months = y * 12;
+        if (m > 0 && y > 0) {
+            const total = m * ((Math.pow(1 + rate, months) - 1) / rate);
+            const resText = translations[currentLang].calc_res.replace('{y}', y);
+            document.getElementById('calcResult').innerHTML = `${resText} <br> ~${Math.round(total).toLocaleString()} ₸`;
+        } else {
+            if(m > 0 || y > 0) alert(translations[currentLang].msg_err);
+        }
+    }
+
+    function sendFeedback() {
+        alert(translations[currentLang].msg_ok);
+    }
+
+    // Init
+    applyTheme(localStorage.getItem('site_theme') || 'light');
+    switchLang('ru');
+</script>
+
+</body>
+</html>

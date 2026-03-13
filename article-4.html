@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Цифровой тенге 2026: Будущее денег в Казахстане</title>
+    <meta name="description" content="Разбираемся, чем Цифровой тенге отличается от обычного безнала. Оффлайн-платежи, смарт-контракты и безопасность ваших денег в 2026 году.">
+    <meta name="keywords" content="цифровой тенге, ЦТ Казахстан, Нацбанк РК, блокчейн тенге, смарт-контракты кз, цифровой кошелек">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #f0f2f5;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #cbd5e1;
+            --primary: #0d47a1; 
+            --accent: #b8860b; 
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --info-bg: #e3f2fd;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --header-bg: #1e293b;
+            --card-bg: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --info-bg: rgba(13, 71, 161, 0.2);
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 0; padding: 0; }
+
+        header { background: var(--header-bg); border-bottom: 2px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 900; font-size: 1.5rem; color: #2563eb; text-decoration: none; letter-spacing: -1px; }
+
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        
+        .lang-switch { display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .lang-btn { background: none; border: none; padding: 5px 12px; cursor: pointer; font-size: 12px; font-weight: 700; color: var(--text-muted); outline: none; }
+        .lang-btn.active { background: var(--primary); color: #fff; }
+
+        #live-date { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: var(--text); 
+            background: var(--bg); 
+            padding: 6px 12px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .theme-toggle { background: var(--bg); border: 2px solid var(--border); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; color: var(--text); }
+
+        .content { max-width: 850px; margin: 40px auto; background: var(--card-bg); padding: 40px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2563eb; text-decoration: none; font-weight: 700; font-size: 0.9rem; }
+
+        h1 { font-size: 2.5rem; line-height: 1.1; color: var(--text); margin-bottom: 20px; font-weight: 900; }
+        
+        .banner-img { width: 100%; border-radius: 15px; margin: 20px 0 30px 0; }
+        h2 { border-left: 5px solid var(--accent); padding-left: 15px; margin-top: 45px; color: var(--text); font-size: 1.8rem; font-weight: 800; }
+        p { margin-bottom: 22px; font-size: 1.1rem; color: var(--text); opacity: 0.9; }
+        
+        .info-box { background: var(--info-bg); border-radius: 12px; padding: 25px; margin: 25px 0; border-left: 5px solid var(--primary); }
+        .info-box h4 { margin-top: 0; color: var(--primary); font-size: 1.2rem; font-weight: 800; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 15px; border: 1px solid var(--border); overflow-x: auto; display: block; }
+        .comparison-table table { width: 100%; min-width: 500px; border-collapse: collapse; }
+        .comparison-table th, .comparison-table td { border: 1px solid var(--border); padding: 15px; text-align: left; }
+        .comparison-table th { background: var(--bg); color: var(--text); font-weight: 800; }
+
+        .offline-badge { background: rgba(255, 152, 0, 0.1); border: 2px dashed #ff9800; padding: 25px; border-radius: 15px; text-align: center; font-weight: 700; margin: 30px 0; color: #ef6c00; }
+
+        .case-card { background: var(--bg); border: 1px solid var(--border); padding: 20px; border-radius: 12px; margin-bottom: 15px; }
+        .case-card b { color: var(--primary); display: block; margin-bottom: 5px; }
+
+        .feedback-form { background: var(--info-bg); border: 2px solid var(--border); border-radius: 15px; padding: 25px; margin-top: 40px; }
+        .feedback-form input, .feedback-form textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); outline: none; }
+        .feedback-form button { background: var(--primary); color: #fff; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; }
+
+        footer { padding: 40px 5%; text-align: center; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 50px; }
+
+        @media (max-width: 600px) {
+            .content { padding: 20px; margin: 10px; border-radius: 12px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">AQSHA.KZ</a>
+    <div class="header-controls">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('ru')">RU</button>
+            <button class="lang-btn" onclick="switchLang('kk')">KZ</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="live-date">Загрузка...</div>
+    </div>
+</header>
+
+<div class="content">
+    <a href="index.html" class="back-link" data-t="back">← Вернуться на главную</a>
+    
+    <h1 data-t="h1">Цифровой тенге 2026: Зачем нам третья форма валюты?</h1>
+
+    <p data-t="p_intro">Многие путают деньги в приложении банка с Цифровым тенге (ЦТ). В 2026 году важно понимать: ЦТ — это не безнал в привычном виде, это <strong>цифровой код (токен)</strong>, который выпускается Нацбанком напрямую. Это как наличные в вашем кармане, только в смартфоне.</p>
+
+    
+    <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1000&q=80" alt="Цифровые технологии" class="banner-img">
+
+    <h2 data-t="h2_1">1. Главные отличия от обычных денег</h2>
+    
+    <div class="comparison-table">
+        <table>
+            <thead>
+                <tr>
+                    <th data-t="th_feature">Признак</th>
+                    <th data-t="th_fiat">Обычный безнал</th>
+                    <th data-t="th_cbdc">Цифровой тенге</th>
+                </tr>
+            </thead>
+            <tbody id="comparison-body">
+                </tbody>
+        </table>
+    </div>
+
+    <div class="offline-badge" data-t="offline_badge">
+        💡 ФИШКА 2026: Вы можете перевести цифровые тенге другому человеку, просто соприкоснувшись телефонами, даже в самолете или глубоко в степи без связи.
+    </div>
+
+    <h2 data-t="h2_2">2. Смарт-контракты: Деньги, которые «знают» свою цель</h2>
+    <p data-t="p_smart">В 2026 году Цифровой тенге стал главным инструментом борьбы с коррупцией и нецелевым использованием средств. Это работает через программирование каждой монеты.</p>
+    
+    <div id="cases-container">
+        </div>
+
+    <h2 data-t="h2_3">3. Безопасность: Можно ли украсть ЦТ?</h2>
+    <p data-t="p_security">Цифровой тенге базируется на блокчейне. Каждая транзакция видна Нацбанку. Если обычные мошенники перевели ваши деньги через 10 подставных счетов, найти их трудно. В ЦТ <strong>каждый тенге имеет историю</strong>, и Нацбанк может просто аннулировать краденый токен и вернуть его владельцу.</p>
+
+    <div class="info-box" id="how-to-start">
+        </div>
+
+    <div class="feedback-form">
+        <h3 data-t="f_h3">Нужна помощь с цифровым кошельком?</h3>
+        <p style="font-size: 0.9rem;" data-t="f_p">Если у вас возникли проблемы с регистрацией кошелька в приложении, опишите их — мы подготовим инструкцию.</p>
+        <input type="email" id="fbEmail" placeholder="Ваш Email или Телефон">
+        <textarea id="fbText" rows="3" placeholder="Ваш вопрос..."></textarea>
+        <button onclick="sendFeedback()" data-t="f_btn">Задать вопрос эксперту</button>
+    </div>
+
+    <div class="related-box" style="margin-top: 30px;">
+        <h3 style="margin-bottom: 15px; border:none; padding:0; color: var(--text);" data-t="rel_h3">Важные темы 2026 года:</h3>
+        <div class="related-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <a href="article-2.html" style="background: var(--bg); padding: 15px; border-radius: 12px; text-decoration: none; color: var(--text); border: 1px solid var(--border);">
+                <b data-t="rel_1">🏠 Ипотека 2026</b>
+                <span style="font-size: 0.8rem; color: var(--text-muted);" data-t="rel_1_sub">Как купить жилье</span>
+            </a>
+            <a href="article-3.html" style="background: var(--bg); padding: 15px; border-radius: 12px; text-decoration: none; color: var(--text); border: 1px solid var(--border);">
+                <b data-t="rel_2">📈 Отбасы Банк</b>
+                <span style="font-size: 0.8rem; color: var(--text-muted);" data-t="rel_2_sub">Секреты накопления</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p id="footer-text">&copy; 2026 — Актуальная финансовая грамотность в Казахстане. <br> Материалы носят ознакомительный характер.</p>
+</footer>
+
+<script>
+    const translations = {
+        ru: {
+            back: "← Вернуться на главную",
+            h1: "Цифровой тенге 2026: Зачем нам третья форма валюты?",
+            p_intro: "Многие путают деньги в приложении банка с Цифровым тенге (ЦТ). В 2026 году важно понимать: ЦТ — это не безнал в привычном виде, это <strong>цифровой код (токен)</strong>, который выпускается Нацбанком напрямую. Это как наличные в вашем кармане, только в смартфоне.",
+            h2_1: "1. Главные отличия от обычных денег",
+            th_feature: "Признак", th_fiat: "Обычный безнал", th_cbdc: "Цифровой тенге",
+            offline_badge: "💡 ФИШКА 2026: Вы можете перевести цифровые тенге другому человеку, просто соприкоснувшись телефонами, даже в самолете или глубоко в степи без связи.",
+            h2_2: "2. Смарт-контракты: Деньги, которые «знают» свою цель",
+            p_smart: "В 2026 году Цифровой тенге стал главным инструментом борьбы с коррупцией и нецелевым использованием средств. Это работает через программирование каждой монеты.",
+            h2_3: "3. Безопасность: Можно ли украсть ЦТ?",
+            p_security: "Цифровой тенге базируется на блокчейне. Каждая транзакция видна Нацбанку. Если обычные мошенники перевели ваши деньги через 10 подставных счетов, найти их трудно. В ЦТ <strong>каждый тенге имеет историю</strong>, и Нацбанк может просто аннулировать краденый токен и вернуть его владельцу.",
+            f_h3: "Нужна помощь с цифровым кошельком?",
+            f_p: "Если у вас возникли проблемы с регистрацией кошелька в приложении, опишите их — мы подготовим инструкцию.",
+            f_btn: "Задать вопрос эксперту",
+            rel_h3: "Важные темы 2026 года:",
+            rel_1: "🏠 Ипотека 2026", rel_1_sub: "Как купить жилье",
+            rel_2: "📈 Отбасы Банк", rel_2_sub: "Секреты накопления",
+            footer: "&copy; 2026 — Актуальная финансовая грамотность в Казахстане. <br> Материалы носят ознакомительный характер.",
+            compTable: [
+                ["Где лежат?", "На счете в банке", "В кошельке Нацбанка"],
+                ["Если банк закроется?", "Зависите от КФГД", "Деньги в полной безопасности"],
+                ["Без интернета?", "Невозможно оплатить", "<strong>Работает оффлайн (NFC)</strong>"]
+            ],
+            cases: [
+                {b: "Пример с госсделками:", p: "Государство выделяет деньги на строительство школы. Эти тенге «помечены». Подрядчик не сможет купить на них люксовое авто или перевести в офшор — система просто отклонит транзакцию, если код товара не совпадает со стройматериалами."},
+                {b: "Пример для семьи (Пособия):", p: "Если вы получаете целевое пособие на питание ребенка цифровыми тенге, вы не сможете потратить их в магазине алкоголя. Это гарантирует, что соцпомощь дойдет до назначения."}
+            ],
+            howTo: `<h4>Как начать пользоваться прямо сейчас?</h4>
+                    <p>1. Зайдите в мобильное приложение своего банка (Kaspi, Halyk, BCC и др.).<br>
+                       2. Найдите раздел <b>«Цифровой кошелек»</b>.<br>
+                       3. Конвертируйте часть баланса в Цифровой тенге (курс всегда 1 к 1).<br>
+                       4. Теперь вы можете платить по QR или NFC даже без доступа к сети.</p>`
+        },
+        kk: {
+            back: "← Басты бетке оралу",
+            h1: "Цифрлық теңге 2026: Валютаның үшінші түрі бізге не үшін керек?",
+            p_intro: "Көптеген адамдар банктік қосымшадағы ақшаны Цифрлық теңгемен (ЦТ) шатастырады. 2026 жылы түсіну маңызды: ЦТ — бұл әдеттегі қолма-қол ақшасыз төлем емес, бұл Ұлттық банк тікелей шығаратын <strong>цифрлық код (токен)</strong>. Бұл сіздің қалтаңыздағы қолма-қол ақша сияқты, тек смартфонда.",
+            h2_1: "1. Қалыпты ақшадан басты айырмашылықтары",
+            th_feature: "Белгісі", th_fiat: "Әдеттегі қолма-қолсыз", th_cbdc: "Цифрлық теңге",
+            offline_badge: "💡 2026 ТӘСІЛІ: Сіз цифрлық теңгені басқа адамға телефондарды бір-біріне тигізу арқылы, тіпті ұшақта немесе байланыс жоқ терең далада аудара аласыз.",
+            h2_2: "2. Смарт-келісімшарттар: Өз мақсатын «білетін» ақша",
+            p_smart: "2026 жылы Цифрлық теңге сыбайлас жемқорлықпен және қаражатты мақсатсыз пайдаланумен күресудің негізгі құралына айналды. Бұл әрбір монетаны бағдарламалау арқылы жұмыс істейді.",
+            h2_3: "3. Қауіпсіздік: ЦТ-ны ұрлау мүмкін бе?",
+            p_security: "Цифрлық теңге блокчейнге негізделген. Әрбір транзакция Ұлттық банкке көрініп тұрады. Егер әдеттегі алаяқтар сіздің ақшаңызды 10 жасанды шот арқылы аударса, оларды табу қиын. ЦТ-да <strong>әрбір теңгенің тарихы бар</strong>, сондықтан Ұлттық банк ұрланған токеннің күшін жойып, оны иесіне қайтара алады.",
+            f_h3: "Цифрлық әмиян бойынша көмек керек пе?",
+            f_p: "Егер қосымшада әмиянды тіркеуде қиындықтар туындаса, оларды сипаттаңыз — біз нұсқаулық дайындаймыз.",
+            f_btn: "Сарапшыға сұрақ қою",
+            rel_h3: "2026 жылдың маңызды тақырыптары:",
+            rel_1: "🏠 Ипотека 2026", rel_1_sub: "Үйді қалай сатып алуға болады",
+            rel_2: "📈 Отбасы Банк", rel_2_sub: "Жинақтау құпиялары",
+            footer: "&copy; 2026 — Қазақстандағы өзекті қаржылық сауаттылық. <br> Материалдар танысу сипатында берілген.",
+            compTable: [
+                ["Қайда жатады?", "Банктегі шотта", "Ұлттық банк әмиянында"],
+                ["Банк жабылса не болады?", "ҚДКБҚ-ға тәуелдісіз", "Ақша толық қауіпсіздікте"],
+                ["Интернетсіз бе?", "Төлеу мүмкін емес", "<strong>Оффлайн жұмыс істейді (NFC)</strong>"]
+            ],
+            cases: [
+                {b: "Мемлекеттік сатып алу мысалы:", p: "Мемлекет мектеп құрылысына ақша бөледі. Бұл теңгелер «таңбаланған». Мердігер бұл ақшаға сәнді көлік сатып ала алмайды немесе оффшорға аудара алмайды — егер тауар коды құрылыс материалдарына сәйкес келмесе, жүйе транзакцияны қабылдамайды."},
+                {b: "Отбасы үшін мысал (Жәрдемақылар):", p: "Егер сіз баланың тамағына цифрлық теңгемен мақсатты жәрдемақы алсаңыз, оны алкоголь дүкенінде жұмсай алмайсыз. Бұл әлеуметтік көмектің тағайындалған жеріне жетуін қамтамасыз етеді."}
+            ],
+            howTo: `<h4>Қазірден бастап қалай қолдануға болады?</h4>
+                    <p>1. Өз банкіңіздің мобильді қосымшасына кіріңіз (Kaspi, Halyk, BCC және т.б.).<br>
+                       2. <b>«Цифрлық әмиян»</b> бөлімін табыңыз.<br>
+                       3. Баланстың бір бөлігін цифрлық теңгеге айналдырыңыз (курс әрқашан 1-ге 1).<br>
+                       4. Енді сіз QR немесе NFC арқылы тіпті желісіз де төлей аласыз.</p>`
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function switchLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick').includes(lang));
+        });
+
+        // Текстовые элементы с атрибутом data-t
+        document.querySelectorAll('[data-t]').forEach(el => {
+            const key = el.getAttribute('data-t');
+            if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        });
+
+        // Таблица
+        const compBody = document.getElementById('comparison-body');
+        compBody.innerHTML = '';
+        translations[lang].compTable.forEach(row => {
+            compBody.innerHTML += `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td></tr>`;
+        });
+
+        // Кейсы (Смарт-контракты)
+        const casesCont = document.getElementById('cases-container');
+        casesCont.innerHTML = '';
+        translations[lang].cases.forEach(c => {
+            casesCont.innerHTML += `<div class="case-card"><b>${c.b}</b>${c.p}</div>`;
+        });
+
+        // Инструкция
+        document.getElementById('how-to-start').innerHTML = translations[lang].howTo;
+
+        // Футер и плейсхолдеры
+        document.getElementById('footer-text').innerHTML = translations[lang].footer;
+        document.getElementById('fbEmail').placeholder = lang === 'ru' ? 'Ваш Email или Телефон' : 'Email немесе Телефон';
+        document.getElementById('fbText').placeholder = lang === 'ru' ? 'Ваш вопрос...' : 'Сұрағыңыз...';
+
+        updateHeaderDate();
+    }
+
+    function updateHeaderDate() {
+        const dateElement = document.getElementById('live-date');
+        const now = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const locale = currentLang === 'ru' ? 'ru-RU' : 'kk-KZ';
+        dateElement.innerText = now.toLocaleDateString(locale, options).replace(' г.', '');
+    }
+    
+    updateHeaderDate();
+
+    const tBtn = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+        tBtn.innerText = theme === 'dark' ? '🌙' : '☀️';
+    }
+
+    tBtn.onclick = () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('site_theme', newTheme);
+    };
+
+    const savedTheme = localStorage.getItem('site_theme') || 'light';
+    applyTheme(savedTheme);
+    switchLang('ru');
+
+    function sendFeedback() {
+        const email = document.getElementById('fbEmail').value;
+        const text = document.getElementById('fbText').value;
+        if(!email || !text) { 
+            alert(currentLang === 'ru' ? 'Заполните данные' : 'Деректерді толтырыңыз'); 
+            return; 
+        }
+        const successMsg = currentLang === 'ru' ? 'Запрос отправлен! Мы ответим на ' : 'Сұраныс жіберілді! Біз жауап береміз: ';
+        alert(successMsg + email);
+        document.getElementById('fbEmail').value = '';
+        document.getElementById('fbText').value = '';
+    }
+</script>
+
+</body>
+</html>

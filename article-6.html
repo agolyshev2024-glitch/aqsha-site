@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ГЭСВ и Соцвыплаты 2026: Новый порядок начислений в Казахстане</title>
+    <meta name="description" content="Все о выплатах из ГФСС в 2026 году. Как рассчитывается ГЭСВ, новые коэффициенты, лимиты по декретным и автоматизация пособий через Цифровую карту семьи.">
+    <meta name="keywords" content="гэсв 2026, социальные выплаты казахстан, гфсс расчет, декретные 2026, пособие по потере работы рк, цифровая карта семьи">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --primary: #0284c7; 
+            --accent: #f59e0b;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --success: #10b981;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --header-bg: #1e293b;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: rgba(255,255,255,0.1);
+            --primary: #38bdf8;
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.8; }
+
+        header { background: var(--header-bg); border-bottom: 2px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 900; font-size: 1.5rem; color: var(--primary); text-decoration: none; letter-spacing: -1px; }
+
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        
+        .lang-switch { display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .lang-btn { background: none; border: none; padding: 5px 12px; cursor: pointer; font-size: 12px; font-weight: 700; color: var(--text-muted); outline: none; }
+        .lang-btn.active { background: var(--primary); color: #fff; }
+
+        #live-date { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: var(--text); 
+            background: var(--bg); 
+            padding: 6px 12px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .theme-toggle { background: var(--bg); border: 2px solid var(--border); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; color: var(--text); }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .back-link { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 20px; }
+        
+        h1 { font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.1; background: linear-gradient(to right, var(--primary), var(--success)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 20px 0; font-weight: 800; }
+
+        .info-card { background: var(--card-bg); padding: 30px; border-radius: 24px; border: 1px solid var(--border); margin: 25px 0; box-shadow: var(--shadow); }
+        .info-card h2 { margin-top: 0; color: var(--primary); font-size: 1.5rem; font-weight: 800; }
+
+        .calculation-box { background: rgba(2, 132, 199, 0.05); border-left: 5px solid var(--primary); padding: 25px; border-radius: 0 15px 15px 0; margin: 25px 0; }
+        
+        .table-wrapper { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; min-width: 500px; }
+        th, td { padding: 14px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { color: var(--primary); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; }
+
+        .alert-box { background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success); padding: 20px; border-radius: 15px; margin: 20px 0; display: flex; gap: 15px; align-items: flex-start; }
+        .alert-box b { color: var(--success); }
+
+        .feedback-form { background: var(--card-bg); border: 2px solid var(--border); border-radius: 20px; padding: 30px; margin-top: 40px; box-shadow: var(--shadow); }
+        .feedback-form h3 { margin-top: 0; color: var(--primary); font-weight: 800; }
+        .feedback-form input, .feedback-form textarea { width: 100%; padding: 14px; margin-bottom: 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); outline: none; font-size: 1rem; }
+        .feedback-form button { background: var(--primary); color: #fff; border: none; padding: 16px 25px; border-radius: 10px; font-weight: 700; cursor: pointer; width: 100%; font-size: 1rem; }
+
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .related-card { background: var(--card-bg); padding: 15px; border-radius: 12px; text-decoration: none; color: var(--text); border: 1px solid var(--border); font-size: 0.9rem; }
+        .related-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+
+        footer { margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding: 40px; color: var(--text-muted); font-size: 13px; }
+
+        @media (max-width: 600px) {
+            .related-grid { grid-template-columns: 1fr; }
+            .info-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">AQSHA.KZ</a>
+    <div class="header-controls">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('ru')">RU</button>
+            <button class="lang-btn" onclick="switchLang('kk')">KZ</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="live-date">Загрузка...</div>
+    </div>
+</header>
+
+<div class="container">
+    <a href="index.html" class="back-link" data-t="back">← Вернуться на главную</a>
+    
+    <h1 data-t="h1">ГЭСВ и Социальные выплаты 2026: Новый порядок</h1>
+    
+    <p data-t="p_intro">Система социального страхования в Казахстане в 2026 году окончательно перешла на модель <strong>"Smart-государства"</strong>. Теперь ГЭСВ работает в связке с Цифровой картой семьи, минимизируя бумажную волокиту.</p>
+
+    <div class="alert-box">
+        <div>
+            <b data-t="alert_h">💡 Важное в 2026 году:</b>
+            <p style="margin: 5px 0 0 0; font-size: 0.95rem;" data-t="alert_p">Статус ОСМС теперь обновляется автоматически при назначении выплат из ГФСС. Если вы потеряли работу, государство берет на себя взносы в медстрахование на период выплаты пособия.</p>
+        </div>
+    </div>
+
+    <div class="info-card">
+        <h2 data-t="table_h">Таблица социальных рисков ГФСС:</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-t="th_1">Тип случая</th>
+                        <th data-t="th_2">Размер выплаты</th>
+                        <th data-t="th_3">Макс. порог (2026)</th>
+                    </tr>
+                </thead>
+                <tbody id="risk-table-body">
+                    </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-muted);" data-t="table_sub">* Расчет индивидуален и зависит от официальных отчислений за последние 12-24 месяца.</p>
+    </div>
+
+    
+
+    <h2 data-t="h2_coeff">Как работает коэффициент стажа в 2026?</h2>
+    <p data-t="p_coeff">Сумма выплаты напрямую зависит от того, как долго ваш работодатель (или вы сами) перечисляли социальные отчисления:</p>
+
+    <div class="calculation-box">
+        <ul style="margin: 0; padding-left: 20px;" id="coeff-list">
+            </ul>
+        <p style="margin-top: 15px; font-size: 0.9rem;" data-t="example"><strong>Пример:</strong> При зарплате 300 000 ₸ и стаже более 5 лет, пособие по потере работы составит 135 000 ₸ ежемесячно.</p>
+    </div>
+
+    <h2 data-t="h2_cks">Цифровая карта семьи (ЦКС)</h2>
+    <p data-t="p_cks">В 2026 году ЦКС стала основным инструментом. Если ваш доход падает ниже прожиточного минимума, вы получите <strong>проактивное уведомление через SMS</strong>. Ходить в ЦОН больше не нужно.</p>
+
+    <div class="feedback-form">
+        <h3 data-t="f_h3">Индивидуальный расчет выплат</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 20px;" data-t="f_p">Запутались в коэффициентах? Оставьте свои данные, и наш бот пришлет вам точный расчет декретных или пособий на 2026 год.</p>
+        <input type="email" id="fbEmail" placeholder="Ваш Email или Телефон">
+        <textarea id="fbText" rows="3" placeholder="Вид выплаты и ваш средний доход..."></textarea>
+        <button onclick="sendFeedback()" data-t="f_btn">Рассчитать мои выплаты</button>
+    </div>
+
+    <div style="margin-top: 50px; border-top: 2px solid var(--border); padding-top: 20px;">
+        <h3 style="color: var(--text);" data-t="rel_h">Вас также может заинтересовать:</h3>
+        <div class="related-grid">
+            <a href="article-5.html" class="related-card">
+                <b data-t="rel_1_h">📋 Налоги ИП 2026</b><br>
+                <span data-t="rel_1_p">Как правильно платить соцотчисления за себя</span>
+            </a>
+            <a href="article-4.html" class="related-card">
+                <b data-t="rel_2_h">₸ Цифровой тенге</b><br>
+                <span data-t="rel_2_p">Получение пособий на цифровой кошелек</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p id="footer-text">&copy; 2026 AQSHA.KZ — Финансовая грамотность. <br> Обновлено: март 2026 г.</p>
+</footer>
+
+<script>
+    const translations = {
+        ru: {
+            back: "← Вернуться на главную",
+            h1: "ГЭСВ и Социальные выплаты 2026: Новый порядок",
+            p_intro: "Система социального страхования в Казахстане в 2026 году окончательно перешла на модель <strong>\"Smart-государства\"</strong>. Теперь ГЭСВ работает в связке с Цифровой картой семьи, минимизируя бумажную волокиту.",
+            alert_h: "💡 Важное в 2026 году:",
+            alert_p: "Статус ОСМС теперь обновляется автоматически при назначении выплат из ГФСС. Если вы потеряли работу, государство берет на себя взносы в медстрахование на период выплаты пособия.",
+            table_h: "Таблица социальных рисков ГФСС:",
+            th_1: "Тип случая", th_2: "Размер выплаты", th_3: "Макс. порог (2026)",
+            riskRows: [
+                ["<b>Декретные (1 раз)</b>", "СМД × 4.2", "до 1 120 000 ₸ *"],
+                ["<b>Уход за ребенком</b>", "40% от СМД", "до 1.5 лет"],
+                ["<b>Потеря работы</b>", "45% от СМД", "до 6 месяцев"]
+            ],
+            table_sub: "* Расчет индивидуален и зависит от официальных отчислений за последние 12-24 месяца.",
+            h2_coeff: "Как работает коэффициент стажа в 2026?",
+            p_coeff: "Сумма выплаты напрямую зависит от того, как долго ваш работодатель (или вы сами) перечисляли социальные отчисления:",
+            coeffList: [
+                "От 6 до 12 месяцев — <b>0.7</b>",
+                "От 12 до 24 месяцев — <b>0.75</b>",
+                "От 60 месяцев и выше — <b>1.0</b>"
+            ],
+            example: "<strong>Пример:</strong> При зарплате 300 000 ₸ и стаже более 5 лет, пособие по потере работы составит 135 000 ₸ ежемесячно.",
+            h2_cks: "Цифровая карта семьи (ЦКС)",
+            p_cks: "В 2026 году ЦКС стала основным инструментом. Если ваш доход падает ниже прожиточного минимума, вы получите <strong>проактивное уведомление через SMS</strong>. Ходить в ЦОН больше не нужно.",
+            f_h3: "Индивидуальный расчет выплат",
+            f_p: "Запутались в коэффициентах? Оставьте свои данные, и наш бот пришлет вам точный расчет декретных или пособий на 2026 год.",
+            f_btn: "Рассчитать мои выплаты",
+            rel_h: "Вас также может заинтересовать:",
+            rel_1_h: "📋 Налоги ИП 2026", rel_1_p: "Как правильно платить соцотчисления за себя",
+            rel_2_h: "₸ Цифровой тенге", rel_2_p: "Получение пособий на цифровой кошелек",
+            footer: "&copy; 2026 AQSHA.KZ — Финансовая грамотность. <br> Обновлено: наурыз 2026 ж.",
+            f_holder: "Вид выплаты и ваш средний доход...",
+            alert_success: "Запрос принят. Расчет придет на "
+        },
+        kk: {
+            back: "← Басты бетке оралу",
+            h1: "МӘС төлемі және Әлеуметтік төлемдер 2026: Жаңа тәртіп",
+            p_intro: "2026 жылы Қазақстандағы әлеуметтік сақтандыру жүйесі толығымен <strong>\"Smart-мемлекет\"</strong> моделіне көшті. Енді МӘС төлемі Отбасының цифрлық картасымен бірге жұмыс істеп, қағазбастылықты азайтты.",
+            alert_h: "💡 2026 жылғы маңызды жаңалық:",
+            alert_p: "Енді МӘСҚ-тан төлемдер тағайындалған кезде МӘМС мәртебесі автоматты түрде жаңартылады. Егер сіз жұмыссыз қалсаңыз, мемлекет жәрдемақы төлеу кезеңінде медициналық сақтандыру жарналарын өз мойнына алады.",
+            table_h: "МӘСҚ әлеуметтік тәуекелдер кестесі:",
+            th_1: "Жағдай түрі", th_2: "Төлем мөлшері", th_3: "Макс. шегі (2026)",
+            riskRows: [
+                ["<b>Декреттік (1 рет)</b>", "ОАБ × 4.2", "1 120 000 ₸ дейін *"],
+                ["<b>Бала күтімі</b>", "ОАБ-дан 40%", "1.5 жасқа дейін"],
+                ["<b>Жұмыстан айырылу</b>", "ОАБ-дан 45%", "6 айға дейін"]
+            ],
+            table_sub: "* Есептеу жеке жүргізіледі және соңғы 12-24 айдағы ресми аударымдарға байланысты.",
+            h2_coeff: "2026 жылы өтіл коэффициенті қалай жұмыс істейді?",
+            p_coeff: "Төлем сомасы жұмыс берушіңіздің (немесе өзіңіздің) әлеуметтік аударымдарды қанша уақыт бойы аударғанына тікелей байланысты:",
+            coeffList: [
+                "6-дан 12 айға дейін — <b>0.7</b>",
+                "12-ден 24 айға дейін — <b>0.75</b>",
+                "60 ай және одан жоғары — <b>1.0</b>"
+            ],
+            example: "<strong>Мысалы:</strong> Жалақы 300 000 ₸ және өтілі 5 жылдан асса, жұмыссыздық бойынша жәрдемақы ай сайын 135 000 ₸ құрайды.",
+            h2_cks: "Отбасының цифрлық картасы (ОЦК)",
+            p_cks: "2026 жылы ОЦК негізгі құралға айналды. Егер табысыңыз күнкөріс деңгейінен төмендесе, сізге <strong>SMS арқылы белсенді хабарлама</strong> келеді. ХҚКО-ға барудың қажеті жоқ.",
+            f_h3: "Төлемдерді жеке есептеу",
+            f_p: "Коэффициенттерден шатастыңыз ба? Мәліметтеріңізді қалдырыңыз, біздің бот сізге 2026 жылға арналған декреттік немесе жәрдемақылардың нақты есебін жібереді.",
+            f_btn: "Төлемдерімді есептеу",
+            rel_h: "Сізді де қызықтыруы мүмкін:",
+            rel_1_h: "📋 ЖК салықтары 2026", rel_1_p: "Өзіңіз үшін әлеуметтік аударымдарды қалай дұрыс төлеу керек",
+            rel_2_h: "₸ Цифрлық теңге", rel_2_p: "Жәрдемақыларды цифрлық әмиянға алу",
+            footer: "&copy; 2026 AQSHA.KZ — Қаржылық сауаттылық. <br> Жаңартылды: наурыз 2026 ж.",
+            f_holder: "Төлем түрі және сіздің орташа табысыңыз...",
+            alert_success: "Сұраныс қабылданды. Есептеу бір сағат ішінде мына мекенжайға келеді: "
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function switchLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick').includes(lang));
+        });
+
+        // Translate general attributes
+        document.querySelectorAll('[data-t]').forEach(el => {
+            const key = el.getAttribute('data-t');
+            if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        });
+
+        // Table translation
+        const tableBody = document.getElementById('risk-table-body');
+        tableBody.innerHTML = '';
+        translations[lang].riskRows.forEach(row => {
+            tableBody.innerHTML += `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td></tr>`;
+        });
+
+        // Coeff list translation
+        const coeffList = document.getElementById('coeff-list');
+        coeffList.innerHTML = '';
+        translations[lang].coeffList.forEach(item => {
+            coeffList.innerHTML += `<li>${item}</li>`;
+        });
+
+        // Form placeholder & Footer
+        document.getElementById('fbText').placeholder = translations[lang].f_holder;
+        document.getElementById('footer-text').innerHTML = translations[lang].footer;
+        
+        updateDates();
+    }
+
+    function updateDates() {
+        const now = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const locale = currentLang === 'ru' ? 'ru-RU' : 'kk-KZ';
+        document.getElementById('live-date').innerText = now.toLocaleDateString(locale, options).replace(' г.', '');
+    }
+
+    const tBtn = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+        tBtn.innerText = theme === 'dark' ? '🌙' : '☀️';
+    }
+
+    tBtn.onclick = () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('site_theme', newTheme);
+    };
+
+    function sendFeedback() {
+        const email = document.getElementById('fbEmail').value;
+        if(!email) { alert(currentLang === 'ru' ? 'Пожалуйста, заполните поля' : 'Өтінеміз, өрістерді толтырыңыз'); return; }
+        alert(translations[currentLang].alert_success + email);
+    }
+
+    // Initialize
+    const savedTheme = localStorage.getItem('site_theme') || 'light';
+    applyTheme(savedTheme);
+    switchLang('ru');
+</script>
+
+</body>
+</html>

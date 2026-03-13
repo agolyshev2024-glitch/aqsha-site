@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQSHA.KZ — Финансовый Портал</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f0f2f5;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #cbd5e1;
+            --primary: #2563eb;
+            --accent: #10b981;
+            --ticker-bg: #1e293b;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --header-bg: #1e293b;
+            --card-bg: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --ticker-bg: #020617;
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--bg); color: var(--text); }
+
+        header {
+            background: var(--header-bg);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border);
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+        .logo { font-weight: 900; font-size: 1.8rem; color: var(--primary); text-decoration: none; letter-spacing: -1.5px; }
+
+        .search-box { flex: 1; max-width: 400px; margin: 0 20px; position: relative; }
+        .search-input { width: 100%; padding: 10px 15px 10px 40px; border-radius: 10px; border: 2px solid var(--border); background: var(--bg); color: var(--text); outline: none; }
+
+        .controls { display: flex; align-items: center; gap: 12px; }
+
+        .theme-toggle {
+            background: var(--bg);
+            border: 2px solid var(--border);
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .theme-toggle:hover { border-color: var(--primary); transform: scale(1.05); }
+
+        .lang-switch { display: flex; background: var(--bg); padding: 4px; border-radius: 10px; border: 2px solid var(--border); cursor: pointer; }
+        .lang-btn { padding: 6px 12px; border-radius: 7px; font-size: 0.8rem; font-weight: 800; color: var(--text-muted); }
+        .lang-btn.active { background: var(--header-bg); color: var(--primary); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+        .ticker-wrap { background: var(--ticker-bg); color: #fff; padding: 10px 5%; display: flex; gap: 25px; font-size: 0.85rem; font-weight: 700; overflow-x: auto; }
+        .ticker-item span { color: var(--accent); margin-left: 5px; }
+
+        /* ИЗМЕНЕННАЯ СЕТКА КОНТЕЙНЕРА */
+        .container { 
+            display: grid; 
+            grid-template-columns: 220px 1fr 280px; /* Фиксированные бока и гибкий центр */
+            gap: 25px; 
+            padding: 20px 3%; 
+            max-width: 1800px; /* Увеличил ширину для 3 колонок */
+            margin: 0 auto; 
+        }
+
+        .sidebar-left { position: sticky; top: 130px; align-self: start; }
+        .menu-box { background: var(--card-bg); border-radius: 15px; border: 2px solid var(--border); padding: 8px; }
+        .menu-item { padding: 12px; border-radius: 10px; cursor: pointer; font-weight: 700; color: var(--text-muted); margin-bottom: 4px; font-size: 0.9rem; }
+        .menu-item:hover { background: var(--bg); color: var(--primary); }
+        .menu-item.active { background: var(--primary); color: #fff; }
+        .calc-btn { margin-top: 10px; border: 2px dashed var(--primary); color: var(--primary); text-align: center; }
+
+        /* ТРИ КОЛОНКИ СТАТЕЙ */
+        .articles-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); /* Ровно 3 колонки */
+            gap: 15px; 
+        }
+
+        .article-card { 
+            background: var(--card-bg); 
+            border-radius: 15px; 
+            padding: 18px; 
+            border: 2px solid var(--border); 
+            text-decoration: none; 
+            color: inherit; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .article-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .badge { font-size: 0.65rem; font-weight: 900; color: var(--primary); background: rgba(37,99,235,0.1); padding: 4px 8px; border-radius: 6px; margin-bottom: 10px; display: inline-block; width: fit-content; }
+
+        .news-box { background: var(--card-bg); border-radius: 15px; border: 2px solid var(--border); overflow: hidden; position: sticky; top: 130px; }
+        .news-header { background: var(--ticker-bg); color: #fff; padding: 12px; font-weight: 900; font-size: 0.8rem; }
+        .news-item { display: block; padding: 12px; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: 0.85rem; }
+        .news-item:hover { background: var(--bg); }
+
+        .calc-wrapper { background: var(--card-bg); border-radius: 20px; padding: 30px; border: 2px solid var(--border); display: none; }
+        .calc-field input { width: 100%; padding: 12px; border-radius: 8px; border: 2px solid var(--border); background: var(--bg); color: var(--text); font-weight: 700; outline: none; }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 1300px) {
+            .articles-grid { grid-template-columns: repeat(2, 1fr); } /* 2 колонки на средних экранах */
+        }
+
+        @media (max-width: 1000px) { 
+            .container { grid-template-columns: 1fr; } 
+            .sidebar-left, .sidebar-right { display: none; } 
+            .articles-grid { grid-template-columns: 1fr; } /* 1 колонка на мобилках */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">AQSHA.KZ</a>
+    <div class="search-box">
+        <span style="position:absolute; left:15px; top:10px">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Поиск...">
+    </div>
+    <div class="controls">
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div class="lang-switch" id="langSwitch">
+            <div class="lang-btn active" data-lang="ru">RU</div>
+            <div class="lang-btn" data-lang="kz">KZ</div>
+        </div>
+    </div>
+</header>
+
+<div class="ticker-wrap" id="ticker">
+    <div class="ticker-item">USD/KZT <span id="usd-rate">...</span></div>
+    <div class="ticker-item">EUR/KZT <span id="eur-rate">...</span></div>
+    <div class="ticker-item">RUB/KZT <span id="rub-rate">...</span></div>
+    <div class="ticker-item">BTC/USD <span id="btc-rate">...</span></div>
+</div>
+
+<div class="container">
+    <aside class="sidebar-left"><div class="menu-box" id="categoryMenu"></div></aside>
+    
+    <main>
+        <div id="articlesSection" class="articles-grid"></div>
+        <div id="calcSection" class="calc-wrapper">
+            <h2 id="calcTitle">Калькулятор</h2>
+            <div style="margin-bottom:15px"><label id="lblSum">Сумма (₸)</label><input type="number" id="inSum" value="1000000"></div>
+            <div style="margin-bottom:15px"><label id="lblRate">Ставка (%)</label><input type="number" id="inRate" value="14.5" step="0.1"></div>
+            <div style="background:rgba(16,185,129,0.1); padding:20px; border-radius:10px; border:1px solid var(--accent)">
+                <span id="lblRes">Прибыль за год:</span><br><b id="outRes" style="font-size:1.8rem; color:var(--accent)">145 000 ₸</b>
+            </div>
+        </div>
+    </main>
+
+    <aside class="sidebar-right">
+        <div class="news-box">
+            <div class="news-header" id="newsLabel">ФИНАНСЫ РК</div>
+            <div id="newsList"></div>
+        </div>
+    </aside>
+</div>
+
+<script>
+    const database = {
+        ru: {
+            calcBtn: "🧮 Калькулятор", calcTitle: "Калькулятор доходности", lblSum: "Сумма депозита (₸)", lblRate: "Ставка ГЭСВ (%)", lblRes: "Чистая прибыль за год:",
+            newsLabel: "ФИНАНСЫ РК", categories: ["Все темы", "Банки", "Ипотека", "Инвестиции", "Налоги", "Безопасность", "Авто"],
+            articles: [
+                { id: 1, cat: "Банки", icon: "🏢", title: "Kaspi, Halyk или BCC?", desc: "Сравнение главных экосистем страны 2026 года." },
+                { id: 2, cat: "Ипотека", icon: "🏠", title: "Ипотека 2026", desc: "Где брать заем без льготных госпрограмм." },
+                { id: 3, cat: "Накопления", icon: "💰", title: "Отбасы Банк", desc: "Как быстро поднять ОП и получить жилье." },
+                { id: 4, cat: "Технологии", icon: "📱", title: "Цифровой тенге", desc: "Зачем он нужен и как им пользоваться." },
+                { id: 5, cat: "Налоги", icon: "📝", title: "Налоги для ИП", desc: "Ключевые изменения Кодекса 2026." },
+                { id: 6, cat: "Депозиты", icon: "📈", title: "Рейтинг ГЭСВ", desc: "Лучшие вклады в тенге на этот месяц." },
+                { id: 7, cat: "Безопасность", icon: "🛡️", title: "ИИ-мошенники", desc: "Защита от дипфейков и новых угроз." },
+                { id: 8, cat: "Покупки", icon: "🛒", title: "Ловушки 0-0-24", desc: "Считаем реальную цену рассрочек." },
+                { id: 9, cat: "Биржа", icon: "🏛️", title: "KASE и AIX", desc: "Как купить первые акции в РК." },
+                { id: 10, cat: "Долги", icon: "📉", title: "Выход из кредитов", desc: "Методики снижения нагрузки." },
+                { id: 11, cat: "Авто", icon: "🚗", title: "Кредит на авто", desc: "Китай против Кореи: что выгоднее." },
+                { id: 12, cat: "Инвестиции", icon: "💎", title: "Куда вложить деньги?", desc: "Обзор инструментов для капитала в 2026." }
+            ]
+        },
+        kz: {
+            calcBtn: "🧮 Калькулятор", calcTitle: "Депозит калькуляторы", lblSum: "Салым сомасы (₸)", lblRate: "Мөлшерлеме (%)", lblRes: "Бір жылдық пайда:",
+            newsLabel: "ҚАРЖЫ ЖАҢАЛЫҚ", categories: ["Барлығы", "Банктер", "Ипотека", "Инвестиция", "Салықтар", "Қауіпсіздік", "Авто"],
+            articles: [
+                { id: 1, cat: "Банктер", icon: "🏢", title: "Kaspi, Halyk немесе BCC?", desc: "Қазақстанның экожүйелерін салыстыру." },
+                { id: 2, cat: "Ипотека", icon: "🏠", title: "Ипотека 2026", desc: "Жеңілдетілген бағдарламасыз несие алу." },
+                { id: 3, cat: "Жинақ", icon: "💰", title: "Отбасы Банк", desc: "ЖТЖ жүйесі арқылы пәтерге жинау жолдары." },
+                { id: 4, cat: "Технология", icon: "📱", title: "Цифрлық теңге", desc: "Ол не үшін керек және қалай қолданылады." },
+                { id: 5, cat: "Салықтар", icon: "📝", title: "ЖК салықтары 2026", desc: "Салық кодексіндегі жаңа өзгерістер." },
+                { id: 6, cat: "Депозиттер", icon: "📈", title: "ГЭСВ рейтингі", desc: "Осы айдағы ең тиімді теңгелік салымдар." },
+                { id: 7, cat: "Қауіпсіздік", icon: "🛡️", title: "ИИ-алаяқтар", desc: "Жаңа цифрлық қауіптерден қорғану керек." },
+                { id: 8, cat: "Сауда", icon: "🛒", title: "0-0-24 қақпандары", desc: "Бөліп төлеудің нақты құнын есептейміз." },
+                { id: 9, cat: "Биржа", icon: "🏛️", title: "KASE және AIX", desc: "Акцияларды қалай сатып алуға болады." },
+                { id: 10, cat: "Қарыздар", icon: "📉", title: "Несиеден құтылу", desc: "Қарыз жүктемесін азайту әдістері." },
+                { id: 11, cat: "Авто", icon: "🚗", title: "Автонесие", desc: "Қытай мен Корея көліктері: қайсысы тиімді." },
+                { id: 12, cat: "Инвестиция", icon: "💎", title: "Ақшаны қайда салуға болады?", desc: "2026 жылғы тиімді құралдарға шолу." }
+            ]
+        }
+    };
+
+    let curLang = 'ru', curCat = 'Все темы', curView = 'articles';
+
+    const tBtn = document.getElementById('themeToggle');
+    tBtn.onclick = () => {
+        const isD = document.body.getAttribute('data-theme') === 'dark';
+        document.body.setAttribute('data-theme', isD ? 'light' : 'dark');
+        tBtn.innerText = isD ? '☀️' : '🌙';
+        localStorage.setItem('t', isD ? 'l' : 'd');
+    };
+    if(localStorage.getItem('t') === 'd') { document.body.setAttribute('data-theme', 'dark'); tBtn.innerText = '🌙'; }
+
+    async function updateRates() {
+        try {
+            const res = await fetch('https://open.er-api.com/v6/latest/KZT');
+            const data = await res.json();
+            document.getElementById('usd-rate').innerText = (1 / data.rates.USD).toFixed(2);
+            document.getElementById('eur-rate').innerText = (1 / data.rates.EUR).toFixed(2);
+            document.getElementById('rub-rate').innerText = (1 / data.rates.RUB).toFixed(2);
+            const btcRes = await fetch('https://api.coinlore.net/api/ticker/?id=90');
+            const btcData = await btcRes.json();
+            document.getElementById('btc-rate').innerText = '$' + Math.round(btcData[0].price_usd).toLocaleString();
+        } catch(e) {}
+    }
+
+    async function getNews() {
+        const list = document.getElementById('newsList');
+        try {
+            const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://kapital.kz/rss/finance')}`);
+            const data = await res.json();
+            const xml = new DOMParser().parseFromString(data.contents, "text/xml");
+            const items = xml.querySelectorAll("item");
+            list.innerHTML = '';
+            Array.from(items).slice(0, 8).forEach(i => {
+                list.innerHTML += `<a href="${i.querySelector("link").textContent}" target="_blank" class="news-item">
+                    <b>${i.querySelector("title").textContent}</b>
+                </a>`;
+            });
+        } catch(e) { list.innerHTML = '<div style="padding:10px">Новости офлайн</div>'; }
+    }
+
+    function doCalc() {
+        const s = +document.getElementById('inSum').value, r = +document.getElementById('inRate').value;
+        document.getElementById('outRes').innerText = (s * r / 100).toLocaleString() + ' ₸';
+    }
+
+    function render() {
+        const t = database[curLang];
+        document.getElementById('newsLabel').innerText = t.newsLabel;
+        document.getElementById('calcTitle').innerText = t.calcTitle;
+        document.getElementById('lblSum').innerText = t.lblSum;
+        document.getElementById('lblRate').innerText = t.lblRate;
+        document.getElementById('lblRes').innerText = t.lblRes;
+        
+        document.getElementById('articlesSection').style.display = curView === 'articles' ? 'grid' : 'none';
+        document.getElementById('calcSection').style.display = curView === 'calc' ? 'block' : 'none';
+
+        const menu = document.getElementById('categoryMenu');
+        menu.innerHTML = '';
+        t.categories.forEach((c, idx) => {
+            const item = document.createElement('div');
+            item.className = `menu-item ${curView === 'articles' && (curCat === database.ru.categories[idx]) ? 'active' : ''}`;
+            item.innerText = c;
+            item.onclick = () => { curView = 'articles'; curCat = database.ru.categories[idx]; render(); };
+            menu.appendChild(item);
+        });
+        const cBtn = document.createElement('div');
+        cBtn.className = `menu-item calc-btn ${curView === 'calc' ? 'active' : ''}`;
+        cBtn.innerText = t.calcBtn;
+        cBtn.onclick = () => { curView = 'calc'; render(); };
+        menu.appendChild(cBtn);
+
+        const grid = document.getElementById('articlesSection');
+        const s = document.getElementById('searchInput').value.toLowerCase();
+        grid.innerHTML = '';
+        t.articles.forEach((art, i) => {
+            if ((curCat === 'Все темы' || database.ru.articles[i].cat === curCat) && art.title.toLowerCase().includes(s)) {
+                grid.innerHTML += `<a href="article-${art.id}.html" class="article-card">
+                    <div class="badge">${art.cat}</div>
+                    <h3>${art.icon} ${art.title}</h3>
+                    <p style="font-size:0.85rem; color:var(--text-muted)">${art.desc}</p>
+                </a>`;
+            }
+        });
+        doCalc();
+    }
+
+    document.getElementById('langSwitch').onclick = (e) => {
+        if (!e.target.dataset.lang) return;
+        curLang = e.target.dataset.lang;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        render();
+    };
+    document.getElementById('inSum').oninput = doCalc;
+    document.getElementById('inRate').oninput = doCalc;
+    document.getElementById('searchInput').oninput = render;
+
+    render(); getNews(); updateRates();
+</script>
+</body>
+</html>

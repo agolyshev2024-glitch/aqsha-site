@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ИИ-мошенничество в Казахстане 2026 | AQSHA.KZ</title>
+    <meta name="description" content="Как распознать дипфейк и защититься от ИИ-мошенников в 2026 году. Инструкция по eGov, биометрии и кибербезопасности в Казахстане.">
+    <meta name="keywords" content="дипфейк, мошенники 2026, кибербезопасность кз, ии мошенничество, защита денег, киберпол рк, отказ от кредита egov">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --primary: #0284c7; 
+            --danger: #e11d48;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --header-bg: #1e293b;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: rgba(255,255,255,0.1);
+            --primary: #38bdf8;
+            --danger: #f43f5e;
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.8; }
+
+        header { background: var(--header-bg); border-bottom: 2px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 900; font-size: 1.5rem; color: #2563eb; text-decoration: none; letter-spacing: -1px; }
+
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        
+        .lang-switch { display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .lang-btn { background: none; border: none; padding: 6px 12px; cursor: pointer; font-size: 13px; font-weight: 700; color: var(--text); outline: none; }
+        .lang-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        #live-date { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: var(--text); 
+            background: var(--bg); 
+            padding: 6px 12px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .theme-toggle { background: var(--bg); border: 2px solid var(--border); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; color: var(--text); }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .back-link { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 20px; }
+        
+        h1 { font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.1; background: linear-gradient(to right, var(--danger), #fb7185); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 20px 0; font-weight: 800; }
+
+        .alert-banner { background: rgba(244, 63, 94, 0.1); border: 2px solid var(--danger); padding: 30px; border-radius: 25px; margin: 40px 0; position: relative; }
+        .alert-banner::before { content: attr(data-label); position: absolute; top: -15px; left: 20px; background: var(--danger); color: white; padding: 5px 15px; border-radius: 8px; font-weight: 800; font-size: 0.7rem; }
+
+        .egov-box { background: rgba(16, 185, 129, 0.1); border-left: 5px solid var(--success); padding: 25px; border-radius: 0 20px 20px 0; margin: 30px 0; }
+        .egov-box h4 { margin-top: 0; color: var(--success); font-size: 1.2rem; }
+
+        .step-card { background: var(--card-bg); padding: 35px; border-radius: 24px; border: 1px solid var(--border); margin: 25px 0; box-shadow: var(--shadow); }
+        .step-card h3 { margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 12px; font-weight: 800; }
+        .step-number { background: var(--primary); color: #fff; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem; font-weight: 800; flex-shrink: 0; }
+
+        .artifact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 20px 0; }
+        .artifact-item { background: var(--bg); padding: 10px; border-radius: 10px; border: 1px dashed var(--border); font-size: 0.85rem; text-align: center; }
+
+        .safe-action { border-left: 4px solid var(--success); background: rgba(16, 185, 129, 0.05); padding: 20px; margin: 20px 0; border-radius: 0 15px 15px 0; }
+
+        .emergency-contacts { background: var(--text); color: #fff; padding: 30px; border-radius: 25px; margin: 40px 0; }
+        .emergency-contacts h3 { color: var(--primary); margin-top: 0; }
+        .contact-grid { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 15px; }
+        .contact-item b { font-size: 1.4rem; color: var(--danger); }
+
+        .feedback-form { background: var(--card-bg); border: 2px solid var(--border); border-radius: 15px; padding: 25px; margin-top: 40px; box-shadow: var(--shadow); }
+        .feedback-form input, .feedback-form textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); outline: none; }
+        .feedback-form button { background: var(--primary); color: #fff; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; }
+        
+        footer { margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding: 40px; color: var(--text-muted); font-size: 13px; }
+
+        @media (max-width: 600px) {
+            .step-card { padding: 20px; }
+            .contact-grid { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">AQSHA.KZ</a>
+    <div class="header-controls">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('ru')">RU</button>
+            <button class="lang-btn" onclick="switchLang('kk')">KZ</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="live-date">Загрузка...</div>
+    </div>
+</header>
+
+<div class="container">
+    <a href="index.html" class="back-link" data-t="back">← Назад на главную</a>
+    
+    <h1 data-t="h1">Осторожно: ИИ-мошенники 2026. Как распознать дипфейк?</h1>
+    <p style="font-size: 1.1rem; color: var(--text-muted);" data-t="intro">В 2026 году голос близкого человека — не гарантия безопасности. Нейросети клонируют личность за 3 секунды аудиозаписи.</p>
+
+    <div class="alert-banner" data-label="⚠ ВНИМАНИЕ" id="alertBanner">
+        <p data-t="alert_text">По данным Киберпола РК, мошенники начали использовать <b>многоуровневые дипфейки</b>: видеозвонок от "сына" подтверждается звонком от "майора полиции", оба голоса полностью имитируют реальных людей.</p>
+    </div>
+
+    
+
+    <div class="egov-box">
+        <h4 data-t="egov_h">🛡 Защита №0: eGov Mobile</h4>
+        <p data-t="egov_p">Лучший способ защитить свои деньги в 2026 году — активировать <b>"Добровольный отказ от получения кредитов"</b>. Даже если мошенники украдут вашу биометрию, банк автоматически отклонит любую заявку на заем.</p>
+        <small data-t="egov_s">Найти в приложении: Сервисы → Налоги и финансы → Отказ от кредитов.</small>
+    </div>
+
+    <h2 data-t="h2_detect">Как распознать цифрового двойника?</h2>
+    <p data-t="detect_p">Нейросети всё еще совершают технические ошибки. Ищите следующие "артефакты" во время подозрительного видеозвонка:</p>
+    
+    <div class="artifact-grid" id="artifactGrid">
+        </div>
+
+    <div class="step-card">
+        <h3><div class="step-number">1</div> <span data-t="s1_h">Тест "Профиль"</span></h3>
+        <p data-t="s1_p">Если сомневаетесь, попросите собеседника <strong>повернуться боком</strong> или почесать нос рукой.</p>
+        <div class="safe-action" data-t="s1_a">ИИ 2026 года отлично рисует лицо "в лоб", но мгновенно теряет детали, когда объект перекрывается рукой или меняет угол обзора.</div>
+    </div>
+
+    <div class="step-card">
+        <h3><div class="step-number">2</div> <span data-t="s2_h">Кодовое слово</span></h3>
+        <p data-t="s2_p">Заведите семейный пароль (например, название первой улицы или имя вымышленного питомца).</p>
+        <div class="safe-action" data-t="s2_a">Никогда не произносите этот пароль в голосовых сообщениях. Это ваша последняя линия обороны, которую ИИ не узнает из соцсетей.</div>
+    </div>
+
+    <div class="step-card">
+        <h3><div class="step-number">3</div> <span data-t="s3_h">Тишина в эфире</span></h3>
+        <p data-t="s3_p">Опасайтесь слов-ловушек. Мошенники провоцируют вас сказать <b>«Да»</b>, <b>«Подтверждаю»</b> или продиктовать <b>ИИН</b>.</p>
+        <div class="safe-action" data-t="s3_a">Используйте нейтральные ответы: «Слушаю», «Говорите», «Не понимаю». Помните: биометрический вход в банки РК в 2026 году реагирует на ваш голос.</div>
+    </div>
+
+    <div class="emergency-contacts">
+        <h3 data-t="em_h">🚨 Куда обращаться?</h3>
+        <p data-t="em_p">Если вы всё же перевели деньги или передали данные:</p>
+        <div class="contact-grid">
+            <div class="contact-item"><span data-t="c1">Полиция</span>: <b>102</b></div>
+            <div class="contact-item"><span data-t="c2">Киберпол РК</span>: <b>1414</b></div>
+            <div class="contact-item"><span data-t="c3">Блокировка счетов</span>: <b data-t="c3_b">Приложение банка</b></div>
+        </div>
+    </div>
+
+    <div class="feedback-form">
+        <h3 data-t="f_h">Сообщить о новом виде мошенничества</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 15px;" data-t="f_p">Ваш опыт поможет другим сохранить сбережения.</p>
+        <input type="email" id="fbEmail" placeholder="Ваш Email">
+        <textarea id="fbText" rows="3" placeholder="Опишите схему..."></textarea>
+        <button onclick="sendFeedback()" data-t="f_btn">Отправить в базу AQSHA.KZ</button>
+    </div>
+</div>
+
+<footer>
+    <p id="footer-text">&copy; 2026 AQSHA.KZ — Проект по повышению киберграмотности в РК. <br> Будьте бдительны — проверяйте информацию.</p>
+</footer>
+
+<script>
+    const translations = {
+        ru: {
+            back: "← Назад на главную",
+            h1: "Осторожно: ИИ-мошенники 2026. Как распознать дипфейк?",
+            intro: "В 2026 году голос близкого человека — не гарантия безопасности. Нейросети клонируют личность за 3 секунды аудиозаписи.",
+            alert_label: "⚠ ВНИМАНИЕ",
+            alert_text: "По данным Киберпола РК, мошенники начали использовать <b>многоуровневые дипфейки</b>: видеозвонок от \"сына\" подтверждается звонком от \"майора полиции\", оба голоса полностью имитируют реальных людей.",
+            egov_h: "🛡 Защита №0: eGov Mobile",
+            egov_p: "Лучший способ защитить свои деньги в 2026 году — активировать <b>\"Добровольный отказ от получения кредитов\"</b>. Даже если мошенники украдут вашу биометрию, банк автоматически отклонит любую заявку на заем.",
+            egov_s: "Найти в приложении: Сервисы → Налоги и финансы → Отказ от кредитов.",
+            h2_detect: "Как распознать цифрового двойника?",
+            detect_p: "Нейросети всё еще совершают технические ошибки. Ищите следующие \"артефакты\" во время подозрительного видеозвонка:",
+            artifacts: ["👁 Неестественное мигание глаз", "👄 Рассинхрон губ и звука", "👂 Размытые границы ушей", "🖼 \"Дрожание\" фона у лица"],
+            s1_h: "Тест \"Профиль\"",
+            s1_p: "Если сомневаетесь, попросите собеседника <strong>повернуться боком</strong> или почесать нос рукой.",
+            s1_a: "ИИ 2026 года отлично рисует лицо \"в лоб\", но мгновенно теряет детали, когда объект перекрывается рукой или меняет угол обзора.",
+            s2_h: "Кодовое слово",
+            s2_p: "Заведите семейный пароль (например, название первой улицы или имя вымышленного питомца).",
+            s2_a: "Никогда не произносите этот пароль в голосовых сообщениях. Это ваша последняя линия обороны, которую ИИ не узнает из соцсетей.",
+            s3_h: "Тишина в эфире",
+            s3_p: "Опасайтесь слов-ловушек. Мошенники провоцируют вас сказать <b>«Да»</b>, <b>«Подтверждаю»</b> или продиктовать <b>ИИН</b>.",
+            s3_a: "Используйте нейтральные ответы: «Слушаю», «Говорите», «Не понимаю». Помните: биометрический вход в банки РК в 2026 году реагирует на ваш голос.",
+            em_h: "🚨 Куда обращаться?",
+            em_p: "Если вы всё же перевели деньги или передали данные:",
+            c1: "Полиция", c2: "Киберпол РК", c3: "Блокировка счетов", c3_b: "Приложение банка",
+            f_h: "Сообщить о новом виде мошенничества",
+            f_p: "Ваш опыт поможет другим сохранить сбережения.",
+            f_btn: "Отправить в базу AQSHA.KZ",
+            f_hold: "Опишите схему, которую использовали против вас...",
+            footer: "&copy; 2026 AQSHA.KZ — Проект по повышению киберграмотности в РК. <br> Будьте бдительны — проверяйте информацию.",
+            alert_mail: "Укажите email для связи",
+            alert_success: "Спасибо! Ваше сообщение передано экспертам по кибербезопасности."
+        },
+        kk: {
+            back: "← Басты бетке қайту",
+            h1: "Абайлаңыз: ИИ-алаяқтар 2026. Дипфейкті қалай тануға болады?",
+            intro: "2026 жылы жақын адамыңыздың дауысы — қауіпсіздік кепілі емес. Нейрожелілер тұлғаны 3 секундтық аудиожазба арқылы клондай алады.",
+            alert_label: "⚠ НАЗАР АУДАРЫҢЫЗ",
+            alert_text: "ҚР Киберполының мәліметінше, алаяқтар <b>көпдеңгейлі дипфейктерді</b> қолдана бастады: \"ұлыңыздың\" видеоқоңырауын \"полиция майоры\" растайды, екі дауыс та нақты адамдарды толықтай қайталайды.",
+            egov_h: "🛡 №0 Қорғаныс: eGov Mobile",
+            egov_p: "2026 жылы ақшаңызды қорғаудың ең жақсы жолы — <b>\"Несие алудан ерікті түрде бас тартуды\"</b> белсендіру. Алаяқтар биометрияңызды ұрласа да, банк кез келген өтінімді автоматты түрде қабылдамайды.",
+            egov_s: "Қосымшадан табу: Сервистер → Салық және қаржы → Несиелерден бас тарту.",
+            h2_detect: "Цифрлық егізді қалай тануға болады?",
+            detect_p: "Нейрожелілер әлі де техникалық қателіктер жібереді. Күдікті видеоқоңырау кезінде келесі \"артефактілерді\" іздеңіз:",
+            artifacts: ["👁 Көздің табиғи емес жыпылықтауы", "👄 Ерін мен дыбыстың сәйкес келмеуі", "👂 Құлақ жиектерінің бұлдырауы", "🖼 Бет маңындағы фонның \"дірілдеуі\""],
+            s1_h: "\"Профиль\" тесті",
+            s1_p: "Күмәндансаңыз, сөйлесушіден <strong>қырынан бұрылуын</strong> немесе мұрнын қолымен қасуын өтініңіз.",
+            s1_a: "2026 жылғы ИИ бетті тура қарағанда жақсы салады, бірақ нысан қолмен жабылғанда немесе бұрыш өзгергенде детальдарды бірден жоғалтады.",
+            s2_h: "Құпия сөз",
+            s2_p: "Отбасылық құпия сөз ойлап табыңыз (мысалы, алғашқы көше атауы немесе ойдан шығарылған үй жануарының аты).",
+            s2_a: "Бұл сөзді ешқашан дауыстық хабарламада айтпаңыз. Бұл ИИ әлеуметтік желіден біле алмайтын сіздің соңғы қорғаныс шебіңіз.",
+            s3_h: "Эфирдегі тыныштық",
+            s3_p: "Тұзақ-сөздерден сақтаныңыз. Алаяқтар сізді <b>«Иә»</b>, <b>«Растаймын»</b> деп айтуға немесе <b>ЖСН</b> мәліметін алуға итермелейді.",
+            s3_a: "Бейтарап жауаптарды қолданыңыз: «Тыңдап тұрмын», «Айта беріңіз», «Түсінбедім». Есіңізде болсын: 2026 жылы банктердегі биометриялық кіру сіздің дауысыңызға жауап береді.",
+            em_h: "🚨 Қайда хабарласу керек?",
+            em_p: "Егер сіз ақша аударып қойсаңыз немесе мәлімет берсеңіз:",
+            c1: "Полиция", c2: "Киберпол РК", c3: "Шоттарды блоктау", c3_b: "Банк қосымшасы",
+            f_h: "Алаяқтықтың жаңа түрі туралы хабарлау",
+            f_p: "Сіздің тәжірибеңіз басқаларға жинағын сақтауға көмектеседі.",
+            f_btn: "AQSHA.KZ базасына жіберу",
+            f_hold: "Сізге қарсы қолданылған схеманы сипаттаңыз...",
+            footer: "&copy; 2026 AQSHA.KZ — ҚР-дағы киберсауаттылықты арттыру жобасы. <br> Сақ болыңыз — ақпаратты тексеріңіз.",
+            alert_mail: "Байланыс үшін email көрсетіңіз",
+            alert_success: "Рахмет! Сіздің хабарламаңыз киберқауіпсіздік сарапшыларына жіберілді."
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function switchLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick').includes(lang));
+        });
+
+        // Translate text by data-t attribute
+        document.querySelectorAll('[data-t]').forEach(el => {
+            const key = el.getAttribute('data-t');
+            if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        });
+
+        // Alert Banner Label
+        document.getElementById('alertBanner').setAttribute('data-label', translations[lang].alert_label);
+
+        // Artifacts Grid
+        const grid = document.getElementById('artifactGrid');
+        grid.innerHTML = '';
+        translations[lang].artifacts.forEach(text => {
+            grid.innerHTML += `<div class="artifact-item">${text}</div>`;
+        });
+
+        // Form placeholder & Footer
+        document.getElementById('fbText').placeholder = translations[lang].f_hold;
+        document.getElementById('footer-text').innerHTML = translations[lang].footer;
+        
+        updateDates();
+    }
+
+    function updateDates() {
+        const now = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const locale = currentLang === 'ru' ? 'ru-RU' : 'kk-KZ';
+        document.getElementById('live-date').innerText = now.toLocaleDateString(locale, options).replace(' г.', '');
+    }
+
+    const tBtn = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+        tBtn.innerText = theme === 'dark' ? '🌙' : '☀️';
+    }
+
+    tBtn.onclick = () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('site_theme', newTheme);
+    };
+
+    function sendFeedback() {
+        const email = document.getElementById('fbEmail').value;
+        if(!email) { alert(translations[currentLang].alert_mail); return; }
+        alert(translations[currentLang].alert_success);
+    }
+
+    // Init
+    applyTheme(localStorage.getItem('site_theme') || 'light');
+    switchLang('ru');
+</script>
+
+</body>
+</html>
