@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="tuIl04pqHU-7QUnbBxa5eXYdMA7RW_COp1QYRaFaqCE" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AQSHA.KZ — Финансовый Портал</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -70,13 +71,12 @@
         .ticker-wrap { background: var(--ticker-bg); color: #fff; padding: 10px 5%; display: flex; gap: 25px; font-size: 0.85rem; font-weight: 700; overflow-x: auto; }
         .ticker-item span { color: var(--accent); margin-left: 5px; }
 
-        /* ИЗМЕНЕННАЯ СЕТКА КОНТЕЙНЕРА */
         .container { 
             display: grid; 
-            grid-template-columns: 220px 1fr 280px; /* Фиксированные бока и гибкий центр */
+            grid-template-columns: 220px 1fr 280px;
             gap: 25px; 
             padding: 20px 3%; 
-            max-width: 1800px; /* Увеличил ширину для 3 колонок */
+            max-width: 1800px;
             margin: 0 auto; 
         }
 
@@ -87,10 +87,9 @@
         .menu-item.active { background: var(--primary); color: #fff; }
         .calc-btn { margin-top: 10px; border: 2px dashed var(--primary); color: var(--primary); text-align: center; }
 
-        /* ТРИ КОЛОНКИ СТАТЕЙ */
         .articles-grid { 
             display: grid; 
-            grid-template-columns: repeat(3, 1fr); /* Ровно 3 колонки */
+            grid-template-columns: repeat(3, 1fr); 
             gap: 15px; 
         }
 
@@ -117,15 +116,14 @@
         .calc-wrapper { background: var(--card-bg); border-radius: 20px; padding: 30px; border: 2px solid var(--border); display: none; }
         .calc-field input { width: 100%; padding: 12px; border-radius: 8px; border: 2px solid var(--border); background: var(--bg); color: var(--text); font-weight: 700; outline: none; }
 
-        /* АДАПТИВНОСТЬ */
         @media (max-width: 1300px) {
-            .articles-grid { grid-template-columns: repeat(2, 1fr); } /* 2 колонки на средних экранах */
+            .articles-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 1000px) { 
             .container { grid-template-columns: 1fr; } 
             .sidebar-left, .sidebar-right { display: none; } 
-            .articles-grid { grid-template-columns: 1fr; } /* 1 колонка на мобилках */
+            .articles-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
